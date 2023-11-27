@@ -1,0 +1,103 @@
+﻿<Window x:Class="cafe.Bron"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cafe"
+        mc:Ignorable="d"
+        Title="Bron1"  MinHeight="900" MinWidth="1440"
+        WindowStartupLocation="Manual"
+        Left="0" Top="0">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="0,18,0,0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" BorderBrush="Transparent" BorderThickness="1" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Black"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle1" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontFamily" Value="Lato"/>
+            <Setter Property="Margin" Value="0,18,0,0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" BorderBrush="White" BorderThickness="2" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Black"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="230"/>
+                </Grid.ColumnDefinitions>
+                <Label Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7">Подтверждение брони стола</Label>
+
+                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" >№</Label>
+
+                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Margin="30,0,0,0" >время</Label>
+
+                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" Margin="30,0,0,0" >стол</Label>
+
+                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3" Margin="30,0,0,0" >кол-во человек</Label>
+
+                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4" Margin="30,0,0,0" >дата</Label>
+
+                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="5" Margin="30,0,0,0" >официант</Label>
+
+                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="6" Margin="30,0,0,0" >подтвердить</Label>
+            </Grid>
+        </StackPanel>
+
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button_Click" FontWeight="Bold" Style="{StaticResource ButtonStyle}" >
+            <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
+        </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище cafeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Education" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Bron">
+          <Key>
+            <PropertyRef Name="BronID" />
+          </Key>
+          <Property Name="BronID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BookingDate" Type="date" Nullable="false" />
+          <Property Name="BookingTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GuestsCount" Type="int" Nullable="false" />
+          <Property Name="StolID" Type="int" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "cafe.dbo.ConfirmedBooking" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ConfirmedBooking">
+          <Key>
+            <PropertyRef Name="AdminID" />
+            <PropertyRef Name="WaiterID" />
+            <PropertyRef Name="BronID" />
+            <PropertyRef Name="ConfirmationDate" />
+          </Key>
+          <Property Name="AdminID" Type="int" Nullable="false" />
+          <Property Name="WaiterID" Type="int" Nullable="false" />
+          <Property Name="BronID" Type="int" Nullable="false" />
+          <Property Name="ConfirmationDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stol">
+          <Key>
+            <PropertyRef Name="StolID" />
+          </Key>
+          <Property Name="StolID" Type="int" Nullable="false" />
+          <Property Name="Seats" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Waiter">
+          <Key>
+            <PropertyRef Name="WaiterID" />
+          </Key>
+          <Property Name="WaiterID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Education" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__Bron__StolID__267ABA7A">
+          <End Role="Stol" Type="Self.Stol" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bron" Type="Self.Bron" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stol">
+              <PropertyRef Name="StolID" />
+            </Principal>
+            <Dependent Role="Bron">
+              <PropertyRef Name="StolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Confirmed__Admin__2C3393D0">
+          <End Role="Administrator" Type="Self.Administrator" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ConfirmedBooking" Type="Self.ConfirmedBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrator">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="ConfirmedBooking">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Confirmed__BronI__2E1BDC42">
+          <End Role="Bron" Type="Self.Bron" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ConfirmedBooking" Type="Self.ConfirmedBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bron">
+              <PropertyRef Name="BronID" />
+            </Principal>
+            <Dependent Role="ConfirmedBooking">
+              <PropertyRef Name="BronID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Confirmed__Waite__2D27B809">
+          <End Role="Waiter" Type="Self.Waiter" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ConfirmedBooking" Type="Self.ConfirmedBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Waiter">
+              <PropertyRef Name="WaiterID" />
+            </Principal>
+            <Dependent Role="ConfirmedBooking">
+              <PropertyRef Name="WaiterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище cafeModelContainer">
+          <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bron" EntityType="Self.Bron" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stol" EntityType="Self.Stol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Waiter" EntityType="Self.Waiter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfirmedBooking" EntityType="Self.ConfirmedBooking" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ConfirmedBooking].[AdminID] AS [AdminID], 
+    [ConfirmedBooking].[WaiterID] AS [WaiterID], 
+    [ConfirmedBooking].[BronID] AS [BronID], 
+    [ConfirmedBooking].[ConfirmationDate] AS [ConfirmationDate]
+    FROM [dbo].[ConfirmedBooking] AS [ConfirmedBooking]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Bron__StolID__267ABA7A" Association="Self.FK__Bron__StolID__267ABA7A">
+            <End Role="Stol" EntitySet="Stol" />
+            <End Role="Bron" EntitySet="Bron" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Confirmed__Admin__2C3393D0" Association="Self.FK__Confirmed__Admin__2C3393D0">
+            <End Role="Administrator" EntitySet="Administrator" />
+            <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Confirmed__BronI__2E1BDC42" Association="Self.FK__Confirmed__BronI__2E1BDC42">
+            <End Role="Bron" EntitySet="Bron" />
+            <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Confirmed__Waite__2D27B809" Association="Self.FK__Confirmed__Waite__2D27B809">
+            <End Role="Waiter" EntitySet="Waiter" />
+            <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cafeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Education" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ConfirmedBooking" Relationship="Self.FK__Confirmed__Admin__2C3393D0" FromRole="Administrator" ToRole="ConfirmedBooking" />
+        </EntityType>
+        <EntityType Name="Bron">
+          <Key>
+            <PropertyRef Name="BronID" />
+          </Key>
+          <Property Name="BronID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BookingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BookingTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GuestsCount" Type="Int32" Nullable="false" />
+          <Property Name="StolID" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Stol" Relationship="Self.FK__Bron__StolID__267ABA7A" FromRole="Bron" ToRole="Stol" />
+          <NavigationProperty Name="ConfirmedBooking" Relationship="Self.FK__Confirmed__BronI__2E1BDC42" FromRole="Bron" ToRole="ConfirmedBooking" />
+        </EntityType>
+        <EntityType Name="Stol">
+          <Key>
+            <PropertyRef Name="StolID" />
+          </Key>
+          <Property Name="StolID" Type="Int32" Nullable="false" />
+          <Property Name="Seats" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bron" Relationship="Self.FK__Bron__StolID__267ABA7A" FromRole="Stol" ToRole="Bron" />
+        </EntityType>
+        <EntityType Name="Waiter">
+          <Key>
+            <PropertyRef Name="WaiterID" />
+          </Key>
+          <Property Name="WaiterID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Education" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ConfirmedBooking" Relationship="Self.FK__Confirmed__Waite__2D27B809" FromRole="Waiter" ToRole="ConfirmedBooking" />
+        </EntityType>
+        <EntityType Name="ConfirmedBooking">
+          <Key>
+            <PropertyRef Name="AdminID" />
+            <PropertyRef Name="WaiterID" />
+            <PropertyRef Name="BronID" />
+            <PropertyRef Name="ConfirmationDate" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <Property Name="WaiterID" Type="Int32" Nullable="false" />
+          <Property Name="BronID" Type="Int32" Nullable="false" />
+          <Property Name="ConfirmationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Administrator" Relationship="Self.FK__Confirmed__Admin__2C3393D0" FromRole="ConfirmedBooking" ToRole="Administrator" />
+          <NavigationProperty Name="Bron" Relationship="Self.FK__Confirmed__BronI__2E1BDC42" FromRole="ConfirmedBooking" ToRole="Bron" />
+          <NavigationProperty Name="Waiter" Relationship="Self.FK__Confirmed__Waite__2D27B809" FromRole="ConfirmedBooking" ToRole="Waiter" />
+        </EntityType>
+        <Association Name="FK__Confirmed__Admin__2C3393D0">
+          <End Role="Administrator" Type="Self.Administrator" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ConfirmedBooking" Type="Self.ConfirmedBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrator">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="ConfirmedBooking">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bron__StolID__267ABA7A">
+          <End Role="Stol" Type="Self.Stol" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bron" Type="Self.Bron" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stol">
+              <PropertyRef Name="StolID" />
+            </Principal>
+            <Dependent Role="Bron">
+              <PropertyRef Name="StolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Confirmed__BronI__2E1BDC42">
+          <End Role="Bron" Type="Self.Bron" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ConfirmedBooking" Type="Self.ConfirmedBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bron">
+              <PropertyRef Name="BronID" />
+            </Principal>
+            <Dependent Role="ConfirmedBooking">
+              <PropertyRef Name="BronID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Confirmed__Waite__2D27B809">
+          <End Role="Waiter" Type="Self.Waiter" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ConfirmedBooking" Type="Self.ConfirmedBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Waiter">
+              <PropertyRef Name="WaiterID" />
+            </Principal>
+            <Dependent Role="ConfirmedBooking">
+              <PropertyRef Name="WaiterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cafeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrator" EntityType="Self.Administrator" />
+          <EntitySet Name="Bron" EntityType="Self.Bron" />
+          <EntitySet Name="Stol" EntityType="Self.Stol" />
+          <EntitySet Name="Waiter" EntityType="Self.Waiter" />
+          <EntitySet Name="ConfirmedBooking" EntityType="Self.ConfirmedBooking" />
+          <AssociationSet Name="FK__Confirmed__Admin__2C3393D0" Association="Self.FK__Confirmed__Admin__2C3393D0">
+            <End Role="Administrator" EntitySet="Administrator" />
+            <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bron__StolID__267ABA7A" Association="Self.FK__Bron__StolID__267ABA7A">
+            <End Role="Stol" EntitySet="Stol" />
+            <End Role="Bron" EntitySet="Bron" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Confirmed__BronI__2E1BDC42" Association="Self.FK__Confirmed__BronI__2E1BDC42">
+            <End Role="Bron" EntitySet="Bron" />
+            <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Confirmed__Waite__2D27B809" Association="Self.FK__Confirmed__Waite__2D27B809">
+            <End Role="Waiter" EntitySet="Waiter" />
+            <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище cafeModelContainer" CdmEntityContainer="cafeEntities">
+          <EntitySetMapping Name="Administrator">
+            <EntityTypeMapping TypeName="cafeModel.Administrator">
+              <MappingFragment StoreEntitySet="Administrator">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bron">
+            <EntityTypeMapping TypeName="cafeModel.Bron">
+              <MappingFragment StoreEntitySet="Bron">
+                <ScalarProperty Name="BronID" ColumnName="BronID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+                <ScalarProperty Name="BookingTime" ColumnName="BookingTime" />
+                <ScalarProperty Name="GuestsCount" ColumnName="GuestsCount" />
+                <ScalarProperty Name="StolID" ColumnName="StolID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stol">
+            <EntityTypeMapping TypeName="cafeModel.Stol">
+              <MappingFragment StoreEntitySet="Stol">
+                <ScalarProperty Name="StolID" ColumnName="StolID" />
+                <ScalarProperty Name="Seats" ColumnName="Seats" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Waiter">
+            <EntityTypeMapping TypeName="cafeModel.Waiter">
+              <MappingFragment StoreEntitySet="Waiter">
+                <ScalarProperty Name="WaiterID" ColumnName="WaiterID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfirmedBooking">
+            <EntityTypeMapping TypeName="cafeModel.ConfirmedBooking">
+              <MappingFragment StoreEntitySet="ConfirmedBooking">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="WaiterID" ColumnName="WaiterID" />
+                <ScalarProperty Name="BronID" ColumnName="BronID" />
+                <ScalarProperty Name="ConfirmationDate" ColumnName="ConfirmationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
