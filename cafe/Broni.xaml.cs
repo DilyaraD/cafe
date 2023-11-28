@@ -29,36 +29,35 @@ namespace cafe
 
         private void LoadData()
         {
-                var bronlist = _context.Bron
-                                           .Where(b => b.Status == "expectation")
-                                           .Select(b => new
-                                           {
-                                               b.BronID,
-                                               b.BookingTime,
-                                               b.StolID,
-                                               b.GuestsCount,
-                                               b.BookingDate
-                                               
+            var bronlist = _context.Bron
+                                    .Where(b => b.Status == "expectation")
+                                    .Select(b => new
+                                    {
+                                        b.BronID,
+                                        b.BookingTime,
+                                        b.StolID,
+                                        b.GuestsCount,
+                                        b.BookingDate
+                                    })
+                                    .ToList();
 
-                                           })
-                                           .ToList();
+            dataGrid.ItemsSource = bronlist;
 
-                    dataGrid.ItemsSource = bronlist;
-
-                    var waiters = _context.Waiter.ToList();
-                    dataGrid.DataContext = waiters;
+            var waiters = _context.Waiter.Select(w => new
+            {
+                w.WaiterID,
+                w.FirstName,
+                w.LastName
+            }).ToList();
+            dataGrid.DataContext = this;
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            // Получение выбранной строки
             var selectedRow = (sender as Button).DataContext as dynamic;
             var bronID = selectedRow.BronID;
-
-            // Получение выбранного официанта
             var selectedWaiterID = (int)dataGrid.Columns.LastOrDefault().GetCellContent(selectedRow).SelectedValue;
 
-            // Создание записи в таблице ConfirmedBooking
             var confirmedBooking = new ConfirmedBooking()
             {
                 AdminID = admin.AdminID,
@@ -66,10 +65,10 @@ namespace cafe
                 BronID = bronID,
                 ConfirmationDate = DateTime.Now
             };
+
             _context.ConfirmedBooking.Add(confirmedBooking);
             _context.SaveChanges();
 
-            // Загрузка данных заново
             LoadData();
         }
 

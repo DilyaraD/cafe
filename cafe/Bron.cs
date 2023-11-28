@@ -31,6 +31,7 @@ namespace cafe
         public string Status { get; set; }
     
         public virtual Stol Stol { get; set; }
+        public virtual Waiter Waiter { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ConfirmedBooking> ConfirmedBooking { get; set; }
     }

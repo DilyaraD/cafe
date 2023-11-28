@@ -74,26 +74,28 @@
                     <ColumnDefinition Width="450"/>
                 </Grid.ColumnDefinitions>
                 <Label Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Подтверждение брони стола</Label>
-                <DataGrid x:Name="dataGrid" HorizontalAlignment="Center" VerticalAlignment="Center" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="#" Binding="{Binding BronID}" Width="50"/>
                         <DataGridTextColumn Header="Время" Binding="{Binding BookingTime}" Width="100"/>
                         <DataGridTextColumn Header="Стол" Binding="{Binding StolID}" Width="100"/>
                         <DataGridTextColumn Header="Кол-во человек" Binding="{Binding GuestsCount}" Width="150"/>
                         <DataGridTextColumn Header="Дата" Binding="{Binding BookingDate}" Width="155"/>
+                        
                         <DataGridComboBoxColumn Header="Официант" SelectedItemBinding="{Binding Waiter}" DisplayMemberPath="FullName" SelectedValueBinding="{Binding WaiterID}" Width="200">
                             <DataGridComboBoxColumn.ElementStyle>
                                 <Style TargetType="ComboBox">
-                                    <Setter Property="ItemsSource" Value="{Binding Waiters, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                                    <Setter Property="ItemsSource" Value="{Binding DataContext.Waiters, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
                                 </Style>
                             </DataGridComboBoxColumn.ElementStyle>
                             <DataGridComboBoxColumn.EditingElementStyle>
                                 <Style TargetType="ComboBox">
-                                    <Setter Property="ItemsSource" Value="{Binding Waiters, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                                    <Setter Property="ItemsSource" Value="{Binding DataContext.Waiters, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
                                 </Style>
                             </DataGridComboBoxColumn.EditingElementStyle>
                         </DataGridComboBoxColumn>
-                        <DataGridTemplateColumn Header="Подтвердить">
+
+                        <DataGridTemplateColumn Header="Подтвердить" Width="150">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Content="Подтвердить" Click="Button2_Click" Command="{Binding DataContext.ConfirmBookingCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
@@ -102,7 +104,6 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-
             </Grid>
         </StackPanel>
 
