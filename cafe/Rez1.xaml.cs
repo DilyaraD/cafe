@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -137,6 +138,26 @@ namespace cafe
             }
             PhoneTextBox.Text = phoneNumber;
 
+        }
+
+        private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                textBox.Text = string.Empty;
+            }
+        }
+
+        private void lastNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                textBox.Text = string.Empty;
+            }
         }
     }
 

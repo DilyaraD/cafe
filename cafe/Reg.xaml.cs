@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -77,6 +78,66 @@ namespace cafe
                 phoneNumber = phoneNumber.Substring(0, 11);
             }
             phonetxt.Text = phoneNumber;
+        }
+
+        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string email = txtEmail.Text.Trim();
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                bool isValidEmail = addr.Address == email;
+                if (!isValidEmail)
+                {
+                    MessageBox.Show("Неправильный формат email.");
+                    return;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Неправильный формат email.");
+                return;
+            }
+        }
+
+        private void passwordtxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                textBox.Text = string.Empty;
+            }
+        }
+
+        private void eductxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                textBox.Text = string.Empty;
+            }
+        }
+
+        private void nametxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                textBox.Text = string.Empty;
+            }
+        }
+
+        private void lastnametxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                textBox.Text = string.Empty;
+            }
         }
     }
 }

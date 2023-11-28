@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -138,7 +139,26 @@ namespace cafe
                     phoneNumber = phoneNumber.Substring(0, 11);
                 }
                 PhoneTextBox.Text = phoneNumber;
-            
+        }
+
+        private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                textBox.Text = string.Empty;
+            }
+        }
+
+        private void lastNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                textBox.Text = string.Empty;
+            }
         }
     }
 }

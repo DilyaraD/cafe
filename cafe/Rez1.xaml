@@ -70,10 +70,10 @@
                         <Label Content="Р Е З Е Р В И Р О В А Н И Е" FontSize="58" Foreground="Black" FontFamily="Arial"  HorizontalAlignment="Left" Margin="0,0,0,40" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"></Label>
 
                         <Label Foreground="Black" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"  Grid.RowSpan="2" >Имя</Label>
-                        <TextBox x:Name="firstNameTextBox" Width="390" Grid.Row="1" Grid.Column="0"  Margin="0,30,0,10" Height="45"/>
+                        <TextBox x:Name="firstNameTextBox" Width="390" Grid.Row="1" Grid.Column="0"  Margin="0,30,0,10" Height="45" TextChanged="firstNameTextBox_TextChanged"/>
 
                         <Label Foreground="Black" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" >Фамилия</Label>
-                        <TextBox x:Name="lastNameTextBox" Width="390" Grid.Row="1" Grid.Column="2"  Margin="0,30,0,10" Height="45" />
+                        <TextBox x:Name="lastNameTextBox" Width="390" Grid.Row="1" Grid.Column="2"  Margin="0,30,0,10" Height="45" TextChanged="lastNameTextBox_TextChanged" />
 
                         <Label Foreground="Black" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0">Номер телефона</Label>
                         <TextBox x:Name="PhoneTextBox" Width="790" Grid.Row="2" Grid.Column="0"  Margin="0,30,0,10" Grid.ColumnSpan="3" Height="45" TextChanged="PhoneTextBox_TextChanged"/>
