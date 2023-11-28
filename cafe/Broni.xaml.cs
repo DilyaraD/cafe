@@ -45,30 +45,29 @@ namespace cafe
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            var selectedRow = (sender as Button).DataContext as dynamic;
-            var bronID = selectedRow.BronID;
-            var selectedWaiterID = (int)dataGrid.Columns.LastOrDefault().GetCellContent(selectedRow).SelectedValue;
+            var selectedBron = (dynamic)dataGrid.SelectedItem; // Получаем текущую выделенную строку
+            var selectedWaiter = (dynamic)((ComboBox)WaiterComboBox.GetCellContent(dataGrid.SelectedItem)).SelectedItem; // Получаем выбранного официанта
 
-            if (selectedWaiterID != 0) // Check if a waiter is selected
+
+            if (selectedWaiter != null && selectedBron != null) // Проверяем, что официант и бронь выбраны
             {
-                int ConfirmedBookingID = _context.ConfirmedBooking.Max(c => c.ConfirmedBookingID);
+                int confirmedBookingID = _context.ConfirmedBooking.Max(c => c.ConfirmedBookingID);
                 var confirmedBooking = new ConfirmedBooking()
                 {
-                    ConfirmedBookingID = ConfirmedBookingID + 1,
+                    ConfirmedBookingID = confirmedBookingID + 1,
                     AdminID = admin.AdminID,
-                    WaiterID = selectedWaiterID,
-                    BronID = bronID,
+                    WaiterID = selectedWaiter.WaiterID, // Присваиваем идентификатор выбранного официанта
+                    BronID = selectedBron.BronID, // Присваиваем идентификатор брони
                     ConfirmationDate = DateTime.Now
                 };
-
                 _context.ConfirmedBooking.Add(confirmedBooking);
                 _context.SaveChanges();
-
-                MessageBox.Show("Booking confirmed successfully."); 
+                MessageBox.Show("Бронь успешно подтверждена.");
+                LoadData();
             }
             else
             {
-                MessageBox.Show("Please select a waiter."); 
+                MessageBox.Show("Пожалуйста, выберите официанта и бронь.");
             }
         }
 
