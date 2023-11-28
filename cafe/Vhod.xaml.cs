@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace cafe
 {
-    /// <summary>
-    /// Логика взаимодействия для Vhod.xaml
-    /// </summary>
     public partial class Vhod : Window
     {
         public Vhod()

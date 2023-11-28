@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace cafe
 {
-    /// <summary>
-    /// Логика взаимодействия для Table.xaml
-    /// </summary>
     public partial class Table : Window
     {
         public Table()

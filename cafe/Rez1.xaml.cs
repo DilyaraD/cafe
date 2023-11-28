@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,24 +14,25 @@ using System.Windows.Shapes;
 
 namespace cafe
 {
-    public partial class Reserv : Window
+    public partial class Rez1 : Window
     {
+        public Rez1(cafeEntities context, Administrator admin)
+        {
+            InitializeComponent();
+            _context = context;
+            this.admin = admin;
+        }
+
         private readonly cafeEntities _context;
         private string selectedTable;
         private string selectedTime;
         private string selectedGG;
-
-        public Reserv(cafeEntities context)
-        {
-            InitializeComponent();
-            _context = context;
-        }
-
+        private readonly Administrator admin;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var M = new MainWindow();
-            M.Show();
+            var A = new Admin(new cafeEntities(), admin);
+            A.Show();
             Close();
         }
 
@@ -85,8 +83,8 @@ namespace cafe
                             _context.Bron.Add(Bron);
                             _context.SaveChanges();
                             MessageBox.Show("ЖДЕМ ВАС ПО АДРЕСУ: БОЛЬШАЯ КРАСНАЯ 55\n" + datePicker.SelectedDate.Value.ToString("dd.MM.yy") + "\n" + selectedTime);
-                            var M = new MainWindow();
-                            M.Show();
+                            var R = new Rez1(new cafeEntities(), admin);
+                            R.Show();
                             Close();
 
                         }
@@ -131,14 +129,15 @@ namespace cafe
 
         private void PhoneTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-                string phoneNumber = PhoneTextBox.Text;
-                phoneNumber = new string(phoneNumber.Where(char.IsDigit).ToArray());
-                if (phoneNumber.Length > 11)
-                {
-                    phoneNumber = phoneNumber.Substring(0, 11);
-                }
-                PhoneTextBox.Text = phoneNumber;
-            
+            string phoneNumber = PhoneTextBox.Text;
+            phoneNumber = new string(phoneNumber.Where(char.IsDigit).ToArray());
+            if (phoneNumber.Length > 11)
+            {
+                phoneNumber = phoneNumber.Substring(0, 11);
+            }
+            PhoneTextBox.Text = phoneNumber;
+
         }
     }
+
 }

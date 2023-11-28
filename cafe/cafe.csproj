@@ -153,6 +153,9 @@
     <Compile Include="Reserv.xaml.cs">
       <DependentUpon>Reserv.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Rez1.xaml.cs">
+      <DependentUpon>Rez1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Stol.cs">
       <DependentUpon>cafeModel.tt</DependentUpon>
     </Compile>
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reserv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rez1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

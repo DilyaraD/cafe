@@ -16,9 +16,6 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace cafe
 {
-    /// <summary>
-    /// Логика взаимодействия для Admin.xaml
-    /// </summary>
     public partial class Admin : Window
     {
         private Administrator admin;
@@ -40,7 +37,7 @@ namespace cafe
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            var R = new Reserv(new cafeEntities());
+            var R = new Rez1(new cafeEntities(), admin);
             R.Show();
             Close();
         }

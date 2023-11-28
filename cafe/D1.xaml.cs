@@ -15,9 +15,6 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace cafe
 {
-    /// <summary>
-    /// Логика взаимодействия для D1.xaml
-    /// </summary>
     public partial class D1 : Window
     {
         private Waiter waiter;

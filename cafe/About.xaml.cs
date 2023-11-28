@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace cafe
 {
-    /// <summary>
-    /// Логика взаимодействия для About.xaml
-    /// </summary>
     public partial class About : Window
     {
         public About()

@@ -90,7 +90,7 @@
                             </DataGridComboBoxColumn.ElementStyle>
                         </DataGridComboBoxColumn>
 
-                        <DataGridTemplateColumn Header="Подтвердить" Width="150">
+                        <DataGridTemplateColumn Header="Подтвердить" Width="100">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Content="Подтвердить" Click="Button2_Click" Command="{Binding DataContext.ConfirmBookingCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>

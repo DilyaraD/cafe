@@ -20,7 +20,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" BorderBrush="Transparent" BorderThickness="1" Background="{TemplateBinding Background}">
+                        <Border x:Name="border" BorderBrush="Transparent" BorderThickness="1" >
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -52,8 +52,8 @@
             <Image x:Name="Block3"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b3.png"  Height="50" Width="215"  />
         </Button>
         <Label Foreground="White"  FontSize="23" FontFamily="Baskerville Old Face" Margin="0,50,330,0" Content="+86 852 346 000" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <Image  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b13.png"  Height="250" Width="750" Margin="-4,170,40,0" HorizontalAlignment="Right" VerticalAlignment="Top"  />
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="380" Margin="120,180,0,0" Height="199" >
+        <Image  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b13.png"  Height="250" Width="750" Margin="-4,170,30,0" HorizontalAlignment="Right" VerticalAlignment="Top"  />
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="380" Margin="90,180,0,0" Height="199" >
             <Label Foreground="White"  FontSize="18" FontFamily="Arial Black">наша история</Label>
             <Label Style="{StaticResource TextStyle}">Трое друзей объединились, чтоб создать уютное</Label>
             <Label Style="{StaticResource TextStyle}">место для любителей итальянской кухни, и</Label>
@@ -61,7 +61,7 @@
             <Label Style="{StaticResource TextStyle}">каждый гость мог бы насладиться аутентичными</Label>
             <Label Style="{StaticResource TextStyle}">итальянскими блюдами и атмосферой.</Label>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom"  Width="350" Margin="0,0,140,40" Height="268" >
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom"  Width="350" Margin="0,0,140,20" Height="268" >
             <Label Foreground="White"  FontSize="18" FontFamily="Arial Black">наша кухня</Label>
             <Label Style="{StaticResource TextStyle}">Итальянская кухня - это путешествие в мир</Label>
             <Label Style="{StaticResource TextStyle}">изысканных вкусов, где каждое блюдо -</Label>

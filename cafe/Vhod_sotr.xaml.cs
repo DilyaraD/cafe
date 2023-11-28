@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace cafe
 {
-    /// <summary>
-    /// Логика взаимодействия для Vhod_sotr.xaml
-    /// </summary>
     public partial class Vhod_sotr : Window
     {
         public Vhod_sotr()
@@ -40,30 +37,25 @@ namespace cafe
             using (var context = new cafeEntities())
             {
                 var waiter = context.Waiter.FirstOrDefault(w => w.Email == email && w.Password == password);
+                var admin = context.Administrator.FirstOrDefault(a => a.Email == email && a.Password == password);
                 if (waiter != null)
                 {
-                    // Пользователь является официантом
-                    var O = new Offi(new cafeEntities(),waiter);
+                    var O = new Offi(new cafeEntities(), waiter);
                     O.Show();
                     Close();
-                    return;
                 }
-            }
-            // Проверка наличия пользователя в таблице Administrator
-            using (var context = new cafeEntities())
-            {
-                var admin = context.Administrator.FirstOrDefault(a => a.Email == email && a.Password == password);
-                if (admin != null)
+                else if (admin != null)
                 {
-                    // Пользователь является администратором
                     var A = new Admin(new cafeEntities(), admin);
                     A.Show();
                     Close();
-                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Пользователь с такими данными не найден.");
                 }
             }
-            // Если пользователь не найден
-            MessageBox.Show("Пользователь с такими данными не найден.");            
+                     
         }
     }
 }

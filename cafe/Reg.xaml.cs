@@ -61,7 +61,7 @@ namespace cafe
                 };
                 _context.Waiter.Add(Waiter);
                 _context.SaveChanges();
-                MessageBox.Show("Добавлен\n официант" + nametxt.Text + " " + lastnametxt.Text);
+                MessageBox.Show("Добавлен\nофициант " + nametxt.Text + " " + lastnametxt.Text);
                 var A = new Admin(new cafeEntities(), admin);
                 A.Show();
                 Close();  
@@ -72,9 +72,9 @@ namespace cafe
         {
             string phoneNumber = phonetxt.Text;
             phoneNumber = new string(phoneNumber.Where(char.IsDigit).ToArray());
-            if (phoneNumber.Length > 10)
+            if (phoneNumber.Length > 11)
             {
-                phoneNumber = phoneNumber.Substring(0, 10);
+                phoneNumber = phoneNumber.Substring(0, 11);
             }
             phonetxt.Text = phoneNumber;
         }

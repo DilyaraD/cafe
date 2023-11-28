@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace cafe
 {
-    /// <summary>
-    /// Логика взаимодействия для Menu3.xaml
-    /// </summary>
     public partial class Menu3 : Window
     {
         public Menu3()

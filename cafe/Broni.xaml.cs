@@ -45,19 +45,19 @@ namespace cafe
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            var selectedBron = (dynamic)dataGrid.SelectedItem; // Получаем текущую выделенную строку
-            var selectedWaiter = (dynamic)((ComboBox)WaiterComboBox.GetCellContent(dataGrid.SelectedItem)).SelectedItem; // Получаем выбранного официанта
+            var selectedBron = (dynamic)dataGrid.SelectedItem; 
+            var selectedWaiter = (dynamic)((ComboBox)WaiterComboBox.GetCellContent(dataGrid.SelectedItem)).SelectedItem;
 
 
-            if (selectedWaiter != null && selectedBron != null) // Проверяем, что официант и бронь выбраны
+            if (selectedWaiter != null && selectedBron != null) 
             {
                 int confirmedBookingID = _context.ConfirmedBooking.Max(c => c.ConfirmedBookingID);
                 var confirmedBooking = new ConfirmedBooking()
                 {
                     ConfirmedBookingID = confirmedBookingID + 1,
                     AdminID = admin.AdminID,
-                    WaiterID = selectedWaiter.WaiterID, // Присваиваем идентификатор выбранного официанта
-                    BronID = selectedBron.BronID, // Присваиваем идентификатор брони
+                    WaiterID = selectedWaiter.WaiterID, 
+                    BronID = selectedBron.BronID,
                     ConfirmationDate = DateTime.Now
                 };
                 _context.ConfirmedBooking.Add(confirmedBooking);
