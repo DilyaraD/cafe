@@ -89,7 +89,7 @@
                 </DatePicker>
                 <Button Grid.Row="1" Grid.Column="5" FontFamily="Global User Interface" HorizontalAlignment="Right" Background="DarkGreen" Foreground="Black" Height="20" Width="36" Margin="15,0,0,0" BorderBrush="Transparent" Click="Button_Click_1" >найти</Button>
 
-                <DataGrid x:Name="dataGrid" Grid.Row="3" Grid.ColumnSpan="5" AutoGenerateColumns="False">
+                <DataGrid x:Name="dataGrid" Grid.Row="3" Grid.ColumnSpan="5" AutoGenerateColumns="False"  Height="400">
                     <DataGrid.Resources>
                         <Style TargetType="DataGridCell">
                             <Setter Property="FontSize" Value="30" />

@@ -67,7 +67,7 @@ namespace cafe
             }
             else
             {
-                MessageBox.Show("Пожалуйста, выберите официанта и бронь.");
+                MessageBox.Show("Пожалуйста, выберите официанта.");
             }
         }
 

@@ -74,7 +74,7 @@
                     <ColumnDefinition Width="450"/>
                 </Grid.ColumnDefinitions>
                 <Label Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Подтверждение брони стола</Label>
-                <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False">
+                <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" Height="400">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="#" Binding="{Binding BronID}" Width="50"/>
                         <DataGridTextColumn Header="Время" Binding="{Binding BookingTime}" Width="100"/>
