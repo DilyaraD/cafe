@@ -30,26 +30,17 @@ namespace cafe
         private void LoadData()
         {
             var bronlist = _context.Bron
-                                    .Where(b => b.Status == "expectation")
-                                    .Select(b => new
-                                    {
-                                        b.BronID,
-                                        b.BookingTime,
-                                        b.StolID,
-                                        b.GuestsCount,
-                                        b.BookingDate
-                                    })
-                                    .ToList();
-
+                 .Where(b => b.Status == "expectation")
+                 .Select(b => new { b.BronID, b.BookingTime, b.StolID, b.GuestsCount, b.BookingDate })
+                 .ToList();
             dataGrid.ItemsSource = bronlist;
 
-            var waiters = _context.Waiter.Select(w => new
-            {
-                w.WaiterID,
-                w.FirstName,
-                w.LastName
-            }).ToList();
-            dataGrid.DataContext = this;
+            var waiters = _context.Waiter
+                .Select(w => new { w.WaiterID, FullName = w.FirstName + " " + w.LastName })
+                .ToList();
+
+            // Привязка списка официантов к элементу ComboBox
+            WaiterComboBox.ItemsSource = waiters;
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
@@ -58,19 +49,29 @@ namespace cafe
             var bronID = selectedRow.BronID;
             var selectedWaiterID = (int)dataGrid.Columns.LastOrDefault().GetCellContent(selectedRow).SelectedValue;
 
-            var confirmedBooking = new ConfirmedBooking()
+            if (selectedWaiterID != 0) // Check if a waiter is selected
             {
-                AdminID = admin.AdminID,
-                WaiterID = selectedWaiterID,
-                BronID = bronID,
-                ConfirmationDate = DateTime.Now
-            };
+                int ConfirmedBookingID = _context.ConfirmedBooking.Max(c => c.ConfirmedBookingID);
+                var confirmedBooking = new ConfirmedBooking()
+                {
+                    ConfirmedBookingID = ConfirmedBookingID + 1,
+                    AdminID = admin.AdminID,
+                    WaiterID = selectedWaiterID,
+                    BronID = bronID,
+                    ConfirmationDate = DateTime.Now
+                };
 
-            _context.ConfirmedBooking.Add(confirmedBooking);
-            _context.SaveChanges();
+                _context.ConfirmedBooking.Add(confirmedBooking);
+                _context.SaveChanges();
 
-            LoadData();
+                MessageBox.Show("Booking confirmed successfully."); 
+            }
+            else
+            {
+                MessageBox.Show("Please select a waiter."); 
+            }
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

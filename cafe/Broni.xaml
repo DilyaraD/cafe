@@ -81,8 +81,8 @@
                         <DataGridTextColumn Header="Стол" Binding="{Binding StolID}" Width="100"/>
                         <DataGridTextColumn Header="Кол-во человек" Binding="{Binding GuestsCount}" Width="150"/>
                         <DataGridTextColumn Header="Дата" Binding="{Binding BookingDate}" Width="155"/>
-                        
-                        <DataGridComboBoxColumn Header="Официант" SelectedItemBinding="{Binding Waiter}" DisplayMemberPath="FullName" SelectedValueBinding="{Binding WaiterID}" Width="200">
+
+                        <DataGridComboBoxColumn Header="Официант" x:Name="WaiterComboBox" SelectedItemBinding="{Binding Waiter}" DisplayMemberPath="FullName" SelectedValueBinding="{Binding WaiterID}" Width="200">
                             <DataGridComboBoxColumn.ElementStyle>
                                 <Style TargetType="ComboBox">
                                     <Setter Property="ItemsSource" Value="{Binding DataContext.Waiters, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
