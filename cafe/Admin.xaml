@@ -81,7 +81,7 @@
             </Button>
         </StackPanel>
 
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button_Click" FontWeight="Bold" Style="{StaticResource ButtonStyle}">
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button_Click" Style="{StaticResource ButtonStyle}">
             <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png" Height="30" />
         </Button>
     </Grid>

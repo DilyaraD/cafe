@@ -33,6 +33,11 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="MenuStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
     </Window.Resources>
     <Grid Background="#233000">
         <Image x:Name="Block2" Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b2.png" Height="63" Width="131" Margin="100,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -47,23 +52,23 @@
 
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,170,0,0">
             <Label Content="Кофе" FontSize="35" FontWeight="Bold" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Эспрессо ............................... 50мл   260" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Американо .............................. 200мл  260" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Капучино ................................200мл  260" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Латте ...................................200мл  260" FontSize="25" FontFamily="Courier New" Foreground="White"/>
+            <Label Content="Эспрессо ............................... 50мл   260" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Американо .............................. 200мл  260" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Капучино ................................200мл  260" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Латте ...................................200мл  260" Style="{StaticResource MenuStyle}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,92" >
             <Label Content="Чай" FontSize="35" FontWeight="Bold" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Зеленый чай ...........................200мл  200" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Черный чай.............................200мл  230" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Мятный чай.............................200мл  210" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Ромашковый чай.........................200мл  190" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Имбирный чай...........................200мл  240" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Ягодный чай............................200мл  250" FontSize="25" FontFamily="Courier New" Foreground="White"/>
+            <Label Content="Зеленый чай ...........................200мл  200" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Черный чай.............................200мл  230" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Мятный чай.............................200мл  210" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Ромашковый чай.........................200мл  190" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Имбирный чай...........................200мл  240" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Ягодный чай............................200мл  250" Style="{StaticResource MenuStyle}"/>
         </StackPanel>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b15.png" Height="290"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="99,0,0,90"/>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b14.png" Height="260"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150,50,0"/>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button1_Click" FontWeight="Bold" Style="{StaticResource MenuButtonStyle}">
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button1_Click" Style="{StaticResource MenuButtonStyle}">
             <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png" Height="30"  />
         </Button>
     </Grid>

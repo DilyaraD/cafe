@@ -54,6 +54,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontFamily" Value="Lato"/>
+        </Style>
     </Window.Resources>
     <Grid>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
@@ -72,24 +78,24 @@
                     <ColumnDefinition Width="500"/>
                 </Grid.ColumnDefinitions>
                 <Label  x:Name="TextT1" Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" >Имя:</Label>
-                <Label x:Name="lblFirstName" Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
+                <Label Style="{StaticResource LabelStyle}" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" >Имя:</Label>
+                <Label x:Name="lblFirstName" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
 
-                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" Margin="0,0,0,0" >Фамилия:</Label>
-                <Label x:Name="lblLastName" Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
+                <Label Style="{StaticResource LabelStyle}" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" Margin="0,0,0,0" >Фамилия:</Label>
+                <Label x:Name="lblLastName" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
 
-                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0" Margin="0,0,0,0" >Телефон:</Label>
-                <Label x:Name="lblPhone" Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
+                <Label Style="{StaticResource LabelStyle}" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0" Margin="0,0,0,0" >Телефон:</Label>
+                <Label x:Name="lblPhone" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
 
-                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0" Margin="0,0,0,0" >Образование:</Label>
-                <Label x:Name="lblEducation" Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
+                <Label Style="{StaticResource LabelStyle}" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0" Margin="0,0,0,0" >Образование:</Label>
+                <Label x:Name="lblEducation" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
 
-                <Label Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0" Margin="0,0,0,0" >Эл.почта:</Label>
-                <Label x:Name="lblEmail" Foreground="White" FontSize="30" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
+                <Label Style="{StaticResource LabelStyle}" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0" Margin="0,0,0,0" >Эл.почта:</Label>
+                <Label x:Name="lblEmail" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" Margin="30,0,0,0" >Имя</Label>
             </Grid>
         </StackPanel>
 
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button_Click" FontWeight="Bold" Style="{StaticResource ButtonStyle}" >
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button_Click" Style="{StaticResource ButtonStyle}" >
             <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
         </Button>
     </Grid>

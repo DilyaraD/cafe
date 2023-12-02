@@ -56,7 +56,7 @@
             </StackPanel>
         </StackPanel>
 
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button1_Click" FontWeight="Bold" Style="{StaticResource MenuButtonStyle}">
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40"  Click="Button1_Click" Style="{StaticResource MenuButtonStyle}">
             <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png" Height="30"  />
         </Button>
     </Grid>

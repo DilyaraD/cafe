@@ -33,7 +33,13 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-            </Window.Resources>
+        <Style x:Key="D" TargetType="Label">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+    </Window.Resources>
             <Grid Background="#EBF0E4">
                 <Image x:Name="Block6"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b6.png"  Height="433" VerticalAlignment="Top" HorizontalAlignment="Right"  />
                 <Image x:Name="Block6_2"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b6.png"  Height="306" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0" RenderTransformOrigin="0.5,0.5" Width="300"  >
@@ -69,13 +75,13 @@
 
                         <Label Content="Р Е З Е Р В И Р О В А Н И Е" FontSize="58" Foreground="Black" FontFamily="Arial"  HorizontalAlignment="Left" Margin="0,0,0,40" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"></Label>
 
-                        <Label Foreground="Black" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"  Grid.RowSpan="2" >Имя</Label>
+                        <Label  Style="{StaticResource D}" Grid.Row="1" Grid.Column="0"  Grid.RowSpan="2" >Имя</Label>
                         <TextBox x:Name="firstNameTextBox" Width="390" Grid.Row="1" Grid.Column="0"  Margin="0,30,0,10" Height="45" TextChanged="firstNameTextBox_TextChanged"/>
 
-                        <Label Foreground="Black" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" >Фамилия</Label>
+                        <Label  Style="{StaticResource D}" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" >Фамилия</Label>
                         <TextBox x:Name="lastNameTextBox" Width="390" Grid.Row="1" Grid.Column="2"  Margin="0,30,0,10" Height="45" TextChanged="lastNameTextBox_TextChanged" />
 
-                        <Label Foreground="Black" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0">Номер телефона</Label>
+                        <Label  Style="{StaticResource D}" Grid.Row="2" Grid.Column="0">Номер телефона</Label>
                         <TextBox x:Name="PhoneTextBox" Width="790" Grid.Row="2" Grid.Column="0"  Margin="0,30,0,10" Grid.ColumnSpan="3" Height="45" TextChanged="PhoneTextBox_TextChanged"/>
 
                         <DatePicker Name="datePicker" DisplayDate="2023-10-06" FontFamily="Courier New" SelectedDateFormat="Short" Width="390" Grid.Row="3" Grid.Column="0" Height="45" Margin="0,30,0,0" >
@@ -87,7 +93,7 @@
                             </DatePicker.Resources>
                         </DatePicker>
 
-                        <Label Foreground="Black" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1">Время</Label>
+                        <Label  Style="{StaticResource D}" Grid.Row="3" Grid.Column="1">Время</Label>
                         <ComboBox x:Name="timeTextBox" SelectedValuePath="Content" SelectedValue="{Binding selectedTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Text="Номер стола" Width="390" Background="Black" Grid.Row="3" Grid.Column="1" Height="45" Margin="0,30,0,0" SelectionChanged="timeTextBox_SelectionChanged">
                             <ComboBoxItem>8:00</ComboBoxItem>
                             <ComboBoxItem>8:30</ComboBoxItem>
@@ -122,7 +128,7 @@
                             <ComboBoxItem>23:00</ComboBoxItem>
                         </ComboBox>
 
-                        <Label Foreground="Black" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="0">Количество гостей</Label>
+                        <Label  Style="{StaticResource D}" Grid.Row="4" Grid.Column="0">Количество гостей</Label>
                         <ComboBox x:Name="ggBox" Text="Номер стола"  Height="41" Width="790"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,30,0,10" SelectionChanged="ggBox_SelectionChanged">
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
@@ -136,7 +142,7 @@
                             <ComboBoxItem Content="10"/>
                         </ComboBox>
 
-                        <Label Foreground="Black" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0">Номер стола</Label>
+                        <Label  Style="{StaticResource D}" Grid.Row="5" Grid.Column="0">Номер стола</Label>
                         <ComboBox x:Name="stolBox" Grid.Row="5" Grid.Column="0" Margin="0,30,0,0" Height="45" Width="390" Background="Black" SelectionChanged="ComboBox_SelectionChanged">
                             <ComboBoxItem Content="1" />
                             <ComboBoxItem Content="2"/>

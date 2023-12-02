@@ -63,7 +63,7 @@
             </Button>
             <Label Foreground="White" FontSize="16" FontFamily="Lato">только для зарегистированных сотрудников!</Label>
         </StackPanel>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button_Click" FontWeight="Bold" Style="{StaticResource ButtonStyle}" >
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button_Click" Style="{StaticResource ButtonStyle}" >
             <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
         </Button>
     </Grid>

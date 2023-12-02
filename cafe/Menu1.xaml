@@ -33,6 +33,16 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="ListStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="MenuStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
     </Window.Resources>
     <Grid Background="#233000">
         <Image x:Name="Block2" Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b2.png" Height="63" Width="131" Margin="100,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -47,24 +57,24 @@
 
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,144,0,0">
             <Label Content="Стартеры" FontSize="35" FontWeight="Bold" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Брускетта.................................... 500гр    2345" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Кусочки свежего хлеба, обжаренные на гриле, свежие помидоры, нарезанные в кубиках, свежий базилик, " FontSize="15" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="оливковое масло, соль и перец" FontSize="15" FontFamily="Courier New" Foreground="White" Margin="0,0,0,15"/>
-            <Label Content="Капрезе...................................... 500гр    2345" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Фета сыр, свежие помидоры, нарезанные кружочками, свежий базилик, оливковое масло, соль и перец" FontSize="15" FontFamily="Courier New" Foreground="White" Margin="0,0,0,15"/>
-            <Label Content="Карпаччо..................................... 500гр    23456" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Тунец, соус на выбор: соус на основе лимона и оливкового масла или соус бальзамического уксуса" FontSize="15" FontFamily="Courier New" Foreground="White"/>
+            <Label Content="Брускетта.................................... 500гр    2345" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Кусочки свежего хлеба, обжаренные на гриле, свежие помидоры, нарезанные в кубиках, свежий базилик, " Style="{StaticResource ListStyle}"/>
+            <Label Content="оливковое масло, соль и перец" Style="{StaticResource ListStyle}" Margin="0,0,0,15"/>
+            <Label Content="Капрезе...................................... 500гр    2345" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Фета сыр, свежие помидоры, нарезанные кружочками, свежий базилик, оливковое масло, соль и перец" Style="{StaticResource ListStyle}" Margin="0,0,0,15"/>
+            <Label Content="Карпаччо..................................... 500гр    23456" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Тунец, соус на выбор: соус на основе лимона и оливкового масла или соус бальзамического уксуса" Style="{StaticResource ListStyle}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,140,110" >
-            <Label Content="Кальмары фритто...................... 500гр    23456" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Кольца кальмара, обжаренные во фритюре, свежий лимон, соус на выбор: маринара или тартар" FontSize="15" FontFamily="Courier New" Foreground="White" Margin="0,0,0,15"/>
-            <Label Content="Минестроне........................... 500гр    23485" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Свежие овощи: морковь, картофель, цветная капуста, брокколи, бульон, рис, соль," FontSize="15" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="перец и итальянские травы" FontSize="15" FontFamily="Courier New" Foreground="White"/>
+            <Label Content="Кальмары фритто...................... 500гр    23456" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Кольца кальмара, обжаренные во фритюре, свежий лимон, соус на выбор: маринара или тартар" Style="{StaticResource ListStyle}" Margin="0,0,0,15"/>
+            <Label Content="Минестроне........................... 500гр    23485" Style="{StaticResource MenuStyle}"/>
+            <Label Content="Свежие овощи: морковь, картофель, цветная капуста, брокколи, бульон, рис, соль," Style="{StaticResource ListStyle}"/>
+            <Label Content="перец и итальянские травы" Style="{StaticResource ListStyle}"/>
         </StackPanel>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b17.png" Height="220"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100,0,0,86"/>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b16.png" Height="340"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,151,100,0"/>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button1_Click" FontWeight="Bold" Style="{StaticResource MenuButtonStyle}" >
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40"  Click="Button1_Click" Style="{StaticResource MenuButtonStyle}" >
             <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png" Height="30"  />
         </Button>
     </Grid>

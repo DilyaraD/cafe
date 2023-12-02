@@ -54,6 +54,32 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="Style1" TargetType="TextBox">
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="White"/>  
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Opacity" Value="0.5"/>
+            <Setter Property="Width" Value="320"/>
+            <Setter Property="Height" Value="41"/>
+            <Setter Property="Margin" Value="0,25,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
@@ -72,160 +98,24 @@
                 </Grid.ColumnDefinitions>
                 <Label Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Регистрация сотрудника</Label>
                 <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Margin="18,0,0,0" >Email</Label>
-                <TextBox Name="txtEmail" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5" Foreground="Gray" Width="320" Height="41" Grid.Row="1" Grid.Column="0"  Margin="0,25,0,20" TextChanged="txtEmail_TextChanged">
-                <TextBox.Style>
-                    <Style TargetType="TextBox">
-                        <Setter Property="Foreground" Value="Gray"/>
-                        <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" Value="White"/>
-                        <Setter Property="FontSize" Value="20"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="TextBox">
-                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
-                                        <ScrollViewer x:Name="PART_ContentHost"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter Property="Foreground" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBox.Style>
-            </TextBox>
+                <TextBox Name="txtEmail"  Grid.Row="1" Grid.Column="0"   TextChanged="txtEmail_TextChanged" Style="{StaticResource Style1}"/>
+                
                 <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="0" Margin="18,0,0,0" >Пароль</Label>
-                <TextBox Name="passwordtxt" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5" Foreground="Gray" Width="320" Height="41" Grid.Row="2" Grid.Column="0"  Margin="0,25,0,20" TextChanged="passwordtxt_TextChanged">
-                <TextBox.Style>
-                    <Style TargetType="TextBox">
-                        <Setter Property="Foreground" Value="Gray"/>
-                        <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" Value="White"/>
-                        <Setter Property="FontSize" Value="20"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="TextBox">
-                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
-                                        <ScrollViewer x:Name="PART_ContentHost"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter Property="Foreground" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBox.Style>
-            </TextBox>
+                <TextBox Name="passwordtxt"  Grid.Row="2" Grid.Column="0"   TextChanged="passwordtxt_TextChanged" Style="{StaticResource Style1}"/>
 
                 <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left" Margin="18,0,0,0" Grid.Row="3" Grid.Column="0">Образование</Label>
-                <TextBox Name="eductxt" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5" Foreground="Gray" Width="320" Height="41" Grid.Row="3" Grid.Column="0"  Margin="0,25,0,0" TextChanged="eductxt_TextChanged">
-                    <TextBox.Style>
-                        <Style TargetType="TextBox">
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="BorderThickness" Value="2"/>
-                            <Setter Property="BorderBrush" Value="White"/>
-                            <Setter Property="FontSize" Value="20"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="TextBox">
-                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
-                                            <ScrollViewer x:Name="PART_ContentHost"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
+                <TextBox Name="eductxt"  Grid.Row="3" Grid.Column="0"   TextChanged="eductxt_TextChanged" Style="{StaticResource Style1}"/>
 
                 <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Margin="18,0,0,0">Имя</Label>
-                <TextBox Name="nametxt" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5" Foreground="Gray" Width="320" Height="41" Grid.Row="1" Grid.Column="1" Margin="0,25,0,20" TextChanged="nametxt_TextChanged" >
-                    <TextBox.Style>
-                        <Style TargetType="TextBox">
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="BorderThickness" Value="2"/>
-                            <Setter Property="BorderBrush" Value="White"/>
-                            <Setter Property="FontSize" Value="20"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="TextBox">
-                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
-                                            <ScrollViewer x:Name="PART_ContentHost"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
+                <TextBox Name="nametxt"  Grid.Row="1" Grid.Column="1"  TextChanged="nametxt_TextChanged" Style="{StaticResource Style1}"/>
+                
                 <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left" Margin="18,0,0,0" Grid.Row="2" Grid.Column="1">Фамилия</Label>
-                <TextBox Name="lastnametxt" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5" Foreground="Gray" Width="320" Height="41" Grid.Row="2" Grid.Column="1"  Margin="0,25,0,20" TextChanged="lastnametxt_TextChanged">
-                    <TextBox.Style>
-                        <Style TargetType="TextBox">
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="BorderThickness" Value="2"/>
-                            <Setter Property="BorderBrush" Value="White"/>
-                            <Setter Property="FontSize" Value="20"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="TextBox">
-                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
-                                            <ScrollViewer x:Name="PART_ContentHost"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
+                <TextBox Name="lastnametxt"  Grid.Row="2" Grid.Column="1"   TextChanged="lastnametxt_TextChanged" Style="{StaticResource Style1}"/>
 
                 <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left" Margin="18,0,0,0" Grid.Row="3" Grid.Column="1">Номер телефона</Label>
-                <TextBox Name="phonetxt" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5" Foreground="Gray" Width="320" Height="41" Grid.Row="3" Grid.Column="1"  Margin="0,25,0,0" TextChanged="phonetxt_TextChanged">
-                    <TextBox.Style>
-                        <Style TargetType="TextBox">
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="BorderThickness" Value="2"/>
-                            <Setter Property="BorderBrush" Value="White"/>
-                            <Setter Property="FontSize" Value="20"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="TextBox">
-                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
-                                            <ScrollViewer x:Name="PART_ContentHost"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
+                <TextBox Name="phonetxt"  Grid.Row="3" Grid.Column="1" TextChanged="phonetxt_TextChanged" Style="{StaticResource Style1}"/>
 
-                <Button Content="добавить" Click="AddButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="40" Margin="0,30,0,0"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Button Content="добавить" Click="AddButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="40" Margin="0,30,0,0"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#EA454C"/>
@@ -251,7 +141,7 @@
             </Grid>
         </StackPanel>
 
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button_Click" FontWeight="Bold" Style="{StaticResource ButtonStyle}" >
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button_Click" Style="{StaticResource ButtonStyle}" >
             <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
         </Button>
     </Grid>

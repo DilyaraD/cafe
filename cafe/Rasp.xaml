@@ -79,7 +79,7 @@
                 <Label x:Name="TextT1" Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" />
 
                 <Label Foreground="White" FontSize="16" FontFamily="Lato"  Grid.Row="1" Grid.Column="5" Margin="0,0,0,0" >Дата смены:</Label>
-                <DatePicker Name="datePicker" DisplayDate="2023-10-06" SelectedDateFormat="Short" Width="110" Grid.Row="1" Grid.Column="5" FontFamily="Global User Interface" HorizontalAlignment="Right" Margin="0,0,45,0">
+                <DatePicker Name="datePicker" DisplayDate="2023-10-06" SelectedDateFormat="Short" Width="110" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" Margin="0,0,45,0">
                     <DatePicker.Resources>
                         <Style x:Key="BlackDatePicker" TargetType="Calendar" >
                             <Setter Property="Background" Value="Black" />
@@ -89,12 +89,11 @@
                 </DatePicker>
                 <Button Grid.Row="1" Grid.Column="5" FontFamily="Global User Interface" HorizontalAlignment="Right" Background="DarkGreen" Foreground="Black" Height="20" Width="36" Margin="15,0,0,0" BorderBrush="Transparent" Click="Button_Click_1" >найти</Button>
 
-                <DataGrid x:Name="dataGrid" Grid.Row="3" Grid.ColumnSpan="5" AutoGenerateColumns="False"  Height="400">
+                <DataGrid x:Name="dataGrid" Grid.Row="3" Grid.ColumnSpan="5" AutoGenerateColumns="False"  Height="400" Background="DarkGreen">
                     <DataGrid.Resources>
                         <Style TargetType="DataGridCell">
                             <Setter Property="FontSize" Value="30" />
                             <Setter Property="FontFamily" Value="Lato" />
-                            <Setter Property="Foreground" Value="Green" />
                         </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
@@ -104,12 +103,9 @@
                         <DataGridTextColumn Width="350" Header="Количество человек" Binding="{Binding GuestsCount}" />
                     </DataGrid.Columns>
                 </DataGrid>
-
-
             </Grid>
         </StackPanel>
-
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button_Click" FontWeight="Bold" Style="{StaticResource ButtonStyle}" >
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40"  Click="Button_Click" Style="{StaticResource ButtonStyle}" >
             <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
         </Button>
     </Grid>

@@ -35,7 +35,6 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="FontFamily" Value="Lato"/>
-            <Setter Property="Margin" Value="0,18,0,0"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -54,62 +53,40 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="Style1" TargetType="TextBox">
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Opacity" Value="0.5"/>
+            <Setter Property="Width" Value="320"/>
+            <Setter Property="Height" Value="41"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Label Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center">Вход</Label>
             <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left">Email</Label>
-            <TextBox Name="txtEmail" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5" Foreground="Gray" Width="320" Height="41">
-                <TextBox.Style>
-                    <Style TargetType="TextBox">
-                        <Setter Property="Foreground" Value="Gray"/>
-                        <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" Value="White"/>
-                        <Setter Property="FontSize" Value="20"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="TextBox">
-                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
-                                        <ScrollViewer x:Name="PART_ContentHost"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter Property="Foreground" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBox.Style>
-            </TextBox>
+            <TextBox Name="txtEmail" Style="{StaticResource Style1}"/>
             <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left" Margin="0,15,0,0">Пароль</Label>
-            <TextBox Name="passwordtxt" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5" Foreground="Gray" Width="320" Height="41">
-                <TextBox.Style>
-                    <Style TargetType="TextBox">
-                        <Setter Property="Foreground" Value="Gray"/>
-                        <Setter Property="BorderThickness" Value="2"/>
-                        <Setter Property="BorderBrush" Value="White"/>
-                        <Setter Property="FontSize" Value="20"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="TextBox">
-                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
-                                        <ScrollViewer x:Name="PART_ContentHost"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter Property="Foreground" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBox.Style>
-            </TextBox>
-
+            <TextBox Name="passwordtxt" Style="{StaticResource Style1}"/>
             <Button Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="40" Margin="0,20,0,0" Click="Button1_Click">
                 <Button.Style>
                     <Style TargetType="Button">
@@ -135,7 +112,7 @@
             </Button>
         </StackPanel>
         
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button_Click" FontWeight="Bold" Style="{StaticResource ButtonStyle}" >
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button_Click" Style="{StaticResource ButtonStyle}" >
             <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
         </Button>
     </Grid>

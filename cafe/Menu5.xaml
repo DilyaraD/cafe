@@ -33,37 +33,44 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="ListStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="MenuStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
     </Window.Resources>
     <Grid Background="#233000">
         <Image x:Name="Block2" Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b2.png" Height="63" Width="131" Margin="100,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Foreground="White" FontSize="63" Content="Trattoria" FontFamily="Baskerville Old Face" Margin="51,20,0,0">
-            <Label.Effect>
-                <DropShadowEffect Color="Black" BlurRadius="3" ShadowDepth="3" Direction="0"/>
-            </Label.Effect>
-        </Label>
+        <Label Foreground="White" FontSize="63" Content="Trattoria" FontFamily="Baskerville Old Face" Margin="51,20,0,0"/>
+
         <Button VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,40,80,0" Background="Transparent" Click="Button_Click" Style="{StaticResource MenuButtonStyle}">
             <Image x:Name="Block3" Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b3.png" Height="50" Width="215"  />
         </Button>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,140,0,0">
             <Label Content="Ужин" FontSize="35" FontWeight="Bold" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Лазанья.................................... 500гр    2345" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="слоеное блюдо, состоящее из пасты, мясного соуса, белого соуса (бешамель) и сыра." FontSize="15" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="Готовится с мясом (говядиной или свининой), но может быть и вегетарианской" FontSize="15" FontFamily="Courier New" Foreground="White"/>
+            <Label Content="Лазанья.................................... 500гр    2345" Style="{StaticResource MenuStyle}"/>
+            <Label Content="слоеное блюдо, состоящее из пасты, мясного соуса, белого соуса (бешамель) и сыра." Style="{StaticResource ListStyle}"/>
+            <Label Content="Готовится с мясом (говядиной или свининой), но может быть и вегетарианской" Style="{StaticResource ListStyle}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,70,90,0">
-            <Label Content="Ризотто.................................... 500гр    2345" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="рисовое блюдо, приготовленное на основе бульона с добавлением различных ингредиентов," FontSize="15" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="таких как морепродукты, овощи, грибы и сыр" FontSize="15" FontFamily="Courier New" Foreground="White"/>
+            <Label Content="Ризотто.................................... 500гр    2345" Style="{StaticResource MenuStyle}"/>
+            <Label Content="рисовое блюдо, приготовленное на основе бульона с добавлением различных ингредиентов," Style="{StaticResource ListStyle}"/>
+            <Label Content="таких как морепродукты, овощи, грибы и сыр" Style="{StaticResource ListStyle}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,110" >
-            <Label Content="Каннеллони................................. 500гр    500" FontSize="25" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="трубочки из свежей пасты, заполненные мясным соусом или начинкой, обычно с мясом и сыром, " FontSize="15" FontFamily="Courier New" Foreground="White"/>
-            <Label Content="а затем запеченные с томатным соусом и сыром" FontSize="15" FontFamily="Courier New" Foreground="White"/>
+            <Label Content="Каннеллони................................. 500гр    500" Style="{StaticResource MenuStyle}"/>
+            <Label Content="трубочки из свежей пасты, заполненные мясным соусом или начинкой, обычно с мясом и сыром, " Style="{StaticResource ListStyle}"/>
+            <Label Content="а затем запеченные с томатным соусом и сыром" Style="{StaticResource ListStyle}"/>
         </StackPanel>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b24.png" Height="230"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70,110,0,0"/>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b25.png" Height="200"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,60"/>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b23.png" Height="180"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150,50,0"/>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button1_Click" FontWeight="Bold" Style="{StaticResource MenuButtonStyle}" >
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button1_Click" Style="{StaticResource MenuButtonStyle}" >
             <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png" Height="30"  />
         </Button>
     </Grid>
