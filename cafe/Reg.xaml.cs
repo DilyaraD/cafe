@@ -103,7 +103,7 @@ namespace cafe
         private void passwordtxt_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
+            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z, 0-9]+$"))
             {
                 MessageBox.Show("Пожалуйста, введите только английские буквы.");
                 textBox.Text = string.Empty;
