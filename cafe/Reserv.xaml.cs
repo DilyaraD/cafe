@@ -47,21 +47,17 @@ namespace cafe
 
         private void ADD_Click(object sender, RoutedEventArgs e)
         {
-            int BronID = _context.Bron.Max(b => b.BronID);
-            var selectedStol = int.Parse(selectedTable);
-            var selectedStolInfo = _context.Stol.FirstOrDefault(s => s.StolID == selectedStol);
-            if (string.IsNullOrEmpty(firstNameTextBox.Text) ||
-                string.IsNullOrEmpty(lastNameTextBox.Text) ||
-                string.IsNullOrEmpty(PhoneTextBox.Text) ||
-                datePicker.SelectedDate == null ||
-                string.IsNullOrEmpty(selectedTable) ||
-                string.IsNullOrEmpty(selectedTime) ||
-                string.IsNullOrEmpty(selectedGG))
+            if (string.IsNullOrEmpty(timeTextBox.SelectedValue?.ToString()) ||
+                string.IsNullOrEmpty(stolBox.SelectedValue?.ToString()) || string.IsNullOrEmpty(ggBox.SelectedValue?.ToString()) || string.IsNullOrEmpty(firstNameTextBox.Text) ||
+                string.IsNullOrEmpty(lastNameTextBox.Text) || string.IsNullOrEmpty(PhoneTextBox.Text) || !datePicker.SelectedDate.HasValue)
             {
                 MessageBox.Show("Заполните все поля!");
             }
             else
             {
+                int BronID = _context.Bron.Max(b => b.BronID);
+                var selectedStol = int.Parse(selectedTable);
+                var selectedStolInfo = _context.Stol.FirstOrDefault(s => s.StolID == selectedStol);
                 if (datePicker.SelectedDate.Value.Date > DateTime.Now.Date || (datePicker.SelectedDate.Value.Date == DateTime.Now.Date))
                 {
                     if (selectedStolInfo != null)
@@ -86,8 +82,8 @@ namespace cafe
                             _context.Bron.Add(Bron);
                             _context.SaveChanges();
                             MessageBox.Show("ЖДЕМ ВАС ПО АДРЕСУ: БОЛЬШАЯ КРАСНАЯ 55\n" + datePicker.SelectedDate.Value.ToString("dd.MM.yy") + "\n" + selectedTime);
-                            var M = new MainWindow();
-                            M.Show();
+                            var R = new Reserv(new cafeEntities());
+                            R.Show();
                             Close();
 
                         }
@@ -132,13 +128,14 @@ namespace cafe
 
         private void PhoneTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-                string phoneNumber = PhoneTextBox.Text;
-                phoneNumber = new string(phoneNumber.Where(char.IsDigit).ToArray());
-                if (phoneNumber.Length > 11)
-                {
-                    phoneNumber = phoneNumber.Substring(0, 11);
-                }
-                PhoneTextBox.Text = phoneNumber;
+            string phoneNumber = PhoneTextBox.Text;
+            phoneNumber = new string(phoneNumber.Where(char.IsDigit).ToArray());
+            if (phoneNumber.Length > 11)
+            {
+                phoneNumber = phoneNumber.Substring(0, 11);
+            }
+            PhoneTextBox.Text = phoneNumber;
+
         }
 
         private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)

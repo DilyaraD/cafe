@@ -38,8 +38,6 @@ namespace cafe
             var waiters = _context.Waiter
                 .Select(w => new { w.WaiterID, FullName = w.FirstName + " " + w.LastName })
                 .ToList();
-
-            // Привязка списка официантов к элементу ComboBox
             WaiterComboBox.ItemsSource = waiters;
         }
 

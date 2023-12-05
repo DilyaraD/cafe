@@ -59,13 +59,13 @@
             <Label Content="Сфера из белого шоколада ................ 200г  350" Style="{StaticResource MenuStyle}"/>
             <Label Content="Мини-круассаны с кремом.................. 200г  350" Style="{StaticResource MenuStyle}"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,92" >
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,70,92" >
             <Label Content="Заварные изделия" FontSize="35" FontWeight="Bold" FontFamily="Courier New" Foreground="White"/>
             <Label Content="Сфолиателла с кремом .................... 200г  300" Style="{StaticResource MenuStyle}"/>
             <Label Content="Пирожное Скалли ......................... 200г  300" Style="{StaticResource MenuStyle}"/>
             <Label Content="Пирог с рикоттой и вишней ............... 200г  300" Style="{StaticResource MenuStyle}"/>
         </StackPanel>
-        <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b19.png" Height="190"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100,0,0,100"/>
+        <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b19.png" Height="190"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="90,0,0,100"/>
         <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b18.png" Height="348"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,150,50,0" />
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40"  Click="Button1_Click" Style="{StaticResource MenuButtonStyle}" >
             <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png" Height="30"  />

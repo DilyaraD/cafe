@@ -45,21 +45,17 @@ namespace cafe
 
         private void ADD_Click(object sender, RoutedEventArgs e)
         {
-            int BronID = _context.Bron.Max(b => b.BronID);
-            var selectedStol = int.Parse(selectedTable);
-            var selectedStolInfo = _context.Stol.FirstOrDefault(s => s.StolID == selectedStol);
-            if (string.IsNullOrEmpty(firstNameTextBox.Text) ||
-                string.IsNullOrEmpty(lastNameTextBox.Text) ||
-                string.IsNullOrEmpty(PhoneTextBox.Text) ||
-                datePicker.SelectedDate == null ||
-                string.IsNullOrEmpty(selectedTable) ||
-                string.IsNullOrEmpty(selectedTime) ||
-                string.IsNullOrEmpty(selectedGG))
+            if (string.IsNullOrEmpty(timeTextBox.SelectedValue?.ToString()) ||
+                string.IsNullOrEmpty(stolBox.SelectedValue?.ToString()) || string.IsNullOrEmpty(ggBox.SelectedValue?.ToString()) || string.IsNullOrEmpty(firstNameTextBox.Text) || 
+                string.IsNullOrEmpty(lastNameTextBox.Text) || string.IsNullOrEmpty(PhoneTextBox.Text) || !datePicker.SelectedDate.HasValue)
             {
                 MessageBox.Show("Заполните все поля!");
             }
             else
             {
+                int BronID = _context.Bron.Max(b => b.BronID);
+                var selectedStol = int.Parse(selectedTable);
+                var selectedStolInfo = _context.Stol.FirstOrDefault(s => s.StolID == selectedStol);
                 if (datePicker.SelectedDate.Value.Date > DateTime.Now.Date || (datePicker.SelectedDate.Value.Date == DateTime.Now.Date))
                 {
                     if (selectedStolInfo != null)

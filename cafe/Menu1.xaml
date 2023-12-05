@@ -65,7 +65,7 @@
             <Label Content="Карпаччо..................................... 500гр    23456" Style="{StaticResource MenuStyle}"/>
             <Label Content="Тунец, соус на выбор: соус на основе лимона и оливкового масла или соус бальзамического уксуса" Style="{StaticResource ListStyle}"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,140,110" >
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,140,80" >
             <Label Content="Кальмары фритто...................... 500гр    23456" Style="{StaticResource MenuStyle}"/>
             <Label Content="Кольца кальмара, обжаренные во фритюре, свежий лимон, соус на выбор: маринара или тартар" Style="{StaticResource ListStyle}" Margin="0,0,0,15"/>
             <Label Content="Минестроне........................... 500гр    23485" Style="{StaticResource MenuStyle}"/>
