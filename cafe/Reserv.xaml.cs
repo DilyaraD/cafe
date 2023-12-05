@@ -146,6 +146,11 @@ namespace cafe
                 MessageBox.Show("Пожалуйста, введите только английские буквы.");
                 textBox.Text = string.Empty;
             }
+            else if (textBox.Text.Length > 45)
+            {
+                MessageBox.Show("Пожалуйста, введите слово короче.");
+                textBox.Text = string.Empty;
+            }
         }
 
         private void lastNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -154,6 +159,11 @@ namespace cafe
             if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
             {
                 MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                textBox.Text = string.Empty;
+            }
+            else if (textBox.Text.Length > 45)
+            {
+                MessageBox.Show("Пожалуйста, введите слово короче.");
                 textBox.Text = string.Empty;
             }
         }
