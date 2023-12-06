@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cafe"
         mc:Ignorable="d"
-        Title="Us" MinHeight="750" MinWidth="1350"
+        Title="Контакты" MinHeight="750" MinWidth="1350"
         WindowStartupLocation="Manual"
         Left="0" Top="0">
     <Window.Resources>
@@ -47,18 +47,20 @@
             <Image x:Name="Block3"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b3.png"  Height="50" Width="215"  />
         </Button>
         <Label Foreground="White"  FontSize="23" FontFamily="Baskerville Old Face" Margin="0,50,330,0" Content="+86 852 346 000" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center"  Width="520" Margin="110,0,0,40">
+        <Grid Width="1250">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center"  Width="520">
             <Label Foreground="White"  FontSize="36" FontFamily="Britannic Bold">С нами можно связаться</Label>
             <Label Foreground="#FFFFFFFD"  FontSize="36" FontFamily="Britannic Bold">по электронной почте</Label>
             <Label Foreground="#FF79A30A"  FontSize="50" FontFamily="Baskerville Old Face">info@trattoria.com</Label>
             <Label Foreground="White"  FontSize="36" FontFamily="Britannic Bold">или позвоните по телефону</Label>
             <Label Foreground="#FF79A30A"  FontSize="40" FontFamily="Baskerville Old Face">+86 852 346 000</Label>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center"  Width="570" Margin="0,0,50,220">
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center"  Width="570">
             <Label Foreground="White"  FontSize="36" FontFamily="Britannic Bold">Мы находимся в Казани,</Label>
             <Label Foreground="#FFFFFFFD"  FontSize="36" FontFamily="Britannic Bold">на улице Большая Красная, 55.</Label>
         </StackPanel>
         <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b9.png" Height="150"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,90"/>
+        </Grid>
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button1_Click" Style="{StaticResource ButtonStyle}" >
             <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
         </Button>

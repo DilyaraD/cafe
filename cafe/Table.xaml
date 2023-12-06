@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cafe"
         mc:Ignorable="d"
-        Title="Table" MinHeight="750" MinWidth="1200"
+        Title="Карта ресторана" MinHeight="750" MinWidth="1200"
         WindowStartupLocation="Manual"
         Left="0" Top="0">
     <Window.Resources>
@@ -16,11 +16,9 @@
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="Background" Value="#5E6600" />
             <Style.Triggers>
-                <!-- Триггер для изменения цвета при наведении -->
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#345837" />
                 </Trigger>
-                <!-- Триггер для изменения цвета при нажатии -->
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="#234926" />
                 </Trigger>

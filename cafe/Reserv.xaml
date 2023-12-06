@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cafe"
         mc:Ignorable="d"
-        Title="Reserv" MinHeight="750" MinWidth="1250"
+        Title="Резервирование" MinHeight="750" MinWidth="1250"
         WindowStartupLocation="Manual"
         Left="0" Top="0">
         <Window.Resources>
@@ -84,7 +84,7 @@
                     <Label  Style="{StaticResource D}" Grid.Row="2" Grid.Column="0">Номер телефона</Label>
                     <TextBox x:Name="PhoneTextBox" Width="790" Grid.Row="2" Grid.Column="0"  Margin="0,30,0,10" Grid.ColumnSpan="3" Height="45" TextChanged="PhoneTextBox_TextChanged"/>
 
-                    <DatePicker Name="datePicker" DisplayDate="2023-10-06" FontFamily="Courier New" SelectedDateFormat="Short" Width="390" Grid.Row="3" Grid.Column="0" Height="45" Margin="0,30,0,0" >
+                    <DatePicker Name="datePicker" DisplayDate="2023-12-06" FontFamily="Courier New" SelectedDateFormat="Short" Width="390" Grid.Row="3" Grid.Column="0" Height="45" Margin="0,30,0,0" >
                         <DatePicker.Resources>
                             <Style x:Key="BlackDatePicker" TargetType="Calendar">
                                 <Setter Property="Background" Value="Black" />

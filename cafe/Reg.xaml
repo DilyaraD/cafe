@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cafe"
         mc:Ignorable="d"
-        Title="Reg" MinHeight="750" MinWidth="1200"
+        Title="Регистрация сотрудника" MinHeight="750" MinWidth="1200"
         WindowStartupLocation="Manual"
         Left="0" Top="0">
     <Window.Resources>
@@ -99,7 +99,7 @@
                 <Label Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Регистрация сотрудника</Label>
                 <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Margin="18,0,0,0" >Email</Label>
                 <TextBox Name="txtEmail"  Grid.Row="1" Grid.Column="0"   TextChanged="txtEmail_TextChanged" Style="{StaticResource Style1}"/>
-                
+
                 <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="0" Margin="18,0,0,0" >Пароль</Label>
                 <TextBox Name="passwordtxt"  Grid.Row="2" Grid.Column="0"   TextChanged="passwordtxt_TextChanged" Style="{StaticResource Style1}"/>
 
