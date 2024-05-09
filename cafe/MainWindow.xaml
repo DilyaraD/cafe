@@ -36,19 +36,19 @@
         </Style>
     </Window.Resources>
     <Grid Background="#233000">
-        <Image x:Name="Block"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\28.png" Stretch="Fill" />
-        <Image x:Name="Block2"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b2.png"  Height="63" Width="131" Margin="100,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image x:Name="Block"  Source="D:\рпм\cafe\cafe\28.png" Stretch="Fill" />
+        <Image x:Name="Block2"  Source="D:\рпм\cafe\cafe\b2.png"  Height="63" Width="131" Margin="100,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Foreground="White"  FontSize="63"  Content="Trattoria" FontFamily="Baskerville Old Face" Margin="51,20,0,0">
             <Label.Effect>
                 <DropShadowEffect Color="Black" BlurRadius="3" ShadowDepth="3" Direction="0"/>
             </Label.Effect>
         </Label>
         <Button VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,40,80,0" Style="{StaticResource ButtonStyle}" Click="Button_Click">
-            <Image x:Name="Block3"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b3.png"  Height="50" Width="215"  />
+            <Image x:Name="Block3"  Source="D:\рпм\cafe\cafe\b3.png"  Height="50" Width="215"  />
         </Button>
         <Label Foreground="White"  FontSize="23" FontFamily="Baskerville Old Face" Margin="0,50,330,0" Content="+86 852 346 000" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         <Grid >
-        <StackPanel Width="1000" Height="580"  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Width="800" Height="580"  HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="B2" Content="• МЕНЮ" Style="{StaticResource ButtonStyle}"  Click="Button2_Click"/>
             <Button x:Name="B3" Content="• РЕЗЕРВИРОВАНИЕ" Style="{StaticResource ButtonStyle}" Click="Button_Click"/>
             <Button x:Name="B4" Content="• КАРТА РЕСТОРАНА" Style="{StaticResource ButtonStyle}" Click="Button4_Click"/>

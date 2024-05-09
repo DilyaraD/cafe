@@ -11,7 +11,8 @@ namespace cafe
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            var V = new Vhod_sotr();
+            cafeEntities context = new cafeEntities();
+            var V = new Vhod_sotr(context);
             V.Show();
             Close();
         }

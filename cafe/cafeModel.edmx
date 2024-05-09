@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="AdminID" />
           </Key>
-          <Property Name="AdminID" Type="int" Nullable="false" />
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
@@ -21,7 +21,7 @@
           <Key>
             <PropertyRef Name="BronID" />
           </Key>
-          <Property Name="BronID" Type="int" Nullable="false" />
+          <Property Name="BronID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
@@ -35,7 +35,7 @@
           <Key>
             <PropertyRef Name="ConfirmedBookingID" />
           </Key>
-          <Property Name="ConfirmedBookingID" Type="int" Nullable="false" />
+          <Property Name="ConfirmedBookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AdminID" Type="int" Nullable="false" />
           <Property Name="WaiterID" Type="int" Nullable="false" />
           <Property Name="BronID" Type="int" Nullable="false" />
@@ -52,7 +52,7 @@
           <Key>
             <PropertyRef Name="WaiterID" />
           </Key>
-          <Property Name="WaiterID" Type="int" Nullable="false" />
+          <Property Name="WaiterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
@@ -60,7 +60,7 @@
           <Property Name="Email" Type="varchar" MaxLength="100" />
           <Property Name="Password" Type="varchar" MaxLength="100" />
         </EntityType>
-        <Association Name="FK__Bron__StolID__38996AB5">
+        <Association Name="FK__Bron__StolID__267ABA7A">
           <End Role="Stol" Type="Self.Stol" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -74,7 +74,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Confirmed__Admin__3F466844">
+        <Association Name="FK__Confirmed__Admin__2D27B809">
           <End Role="Administrator" Type="Self.Administrator" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -88,7 +88,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Confirmed__BronI__412EB0B6">
+        <Association Name="FK__Confirmed__BronI__2F10007B">
           <End Role="Bron" Type="Self.Bron" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -102,7 +102,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Confirmed__Waite__403A8C7D">
+        <Association Name="FK__Confirmed__Waite__2E1BDC42">
           <End Role="Waiter" Type="Self.Waiter" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -122,19 +122,19 @@
           <EntitySet Name="ConfirmedBooking" EntityType="Self.ConfirmedBooking" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stol" EntityType="Self.Stol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Waiter" EntityType="Self.Waiter" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Bron__StolID__38996AB5" Association="Self.FK__Bron__StolID__38996AB5">
+          <AssociationSet Name="FK__Bron__StolID__267ABA7A" Association="Self.FK__Bron__StolID__267ABA7A">
             <End Role="Stol" EntitySet="Stol" />
             <End Role="Bron" EntitySet="Bron" />
           </AssociationSet>
-          <AssociationSet Name="FK__Confirmed__Admin__3F466844" Association="Self.FK__Confirmed__Admin__3F466844">
+          <AssociationSet Name="FK__Confirmed__Admin__2D27B809" Association="Self.FK__Confirmed__Admin__2D27B809">
             <End Role="Administrator" EntitySet="Administrator" />
             <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
           </AssociationSet>
-          <AssociationSet Name="FK__Confirmed__BronI__412EB0B6" Association="Self.FK__Confirmed__BronI__412EB0B6">
+          <AssociationSet Name="FK__Confirmed__BronI__2F10007B" Association="Self.FK__Confirmed__BronI__2F10007B">
             <End Role="Bron" EntitySet="Bron" />
             <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
           </AssociationSet>
-          <AssociationSet Name="FK__Confirmed__Waite__403A8C7D" Association="Self.FK__Confirmed__Waite__403A8C7D">
+          <AssociationSet Name="FK__Confirmed__Waite__2E1BDC42" Association="Self.FK__Confirmed__Waite__2E1BDC42">
             <End Role="Waiter" EntitySet="Waiter" />
             <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
           </AssociationSet>
@@ -148,20 +148,20 @@
           <Key>
             <PropertyRef Name="AdminID" />
           </Key>
-          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Education" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ConfirmedBooking" Relationship="Self.FK__Confirmed__Admin__3F466844" FromRole="Administrator" ToRole="ConfirmedBooking" />
+          <NavigationProperty Name="ConfirmedBooking" Relationship="Self.FK__Confirmed__Admin__2D27B809" FromRole="Administrator" ToRole="ConfirmedBooking" />
         </EntityType>
         <EntityType Name="Bron">
           <Key>
             <PropertyRef Name="BronID" />
           </Key>
-          <Property Name="BronID" Type="Int32" Nullable="false" />
+          <Property Name="BronID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -170,21 +170,21 @@
           <Property Name="GuestsCount" Type="Int32" Nullable="false" />
           <Property Name="StolID" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Stol" Relationship="Self.FK__Bron__StolID__38996AB5" FromRole="Bron" ToRole="Stol" />
-          <NavigationProperty Name="ConfirmedBooking" Relationship="Self.FK__Confirmed__BronI__412EB0B6" FromRole="Bron" ToRole="ConfirmedBooking" />
+          <NavigationProperty Name="Stol" Relationship="Self.FK__Bron__StolID__267ABA7A" FromRole="Bron" ToRole="Stol" />
+          <NavigationProperty Name="ConfirmedBooking" Relationship="Self.FK__Confirmed__BronI__2F10007B" FromRole="Bron" ToRole="ConfirmedBooking" />
         </EntityType>
         <EntityType Name="ConfirmedBooking">
           <Key>
             <PropertyRef Name="ConfirmedBookingID" />
           </Key>
-          <Property Name="ConfirmedBookingID" Type="Int32" Nullable="false" />
+          <Property Name="ConfirmedBookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AdminID" Type="Int32" Nullable="false" />
           <Property Name="WaiterID" Type="Int32" Nullable="false" />
           <Property Name="BronID" Type="Int32" Nullable="false" />
           <Property Name="ConfirmationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Administrator" Relationship="Self.FK__Confirmed__Admin__3F466844" FromRole="ConfirmedBooking" ToRole="Administrator" />
-          <NavigationProperty Name="Bron" Relationship="Self.FK__Confirmed__BronI__412EB0B6" FromRole="ConfirmedBooking" ToRole="Bron" />
-          <NavigationProperty Name="Waiter" Relationship="Self.FK__Confirmed__Waite__403A8C7D" FromRole="ConfirmedBooking" ToRole="Waiter" />
+          <NavigationProperty Name="Administrator" Relationship="Self.FK__Confirmed__Admin__2D27B809" FromRole="ConfirmedBooking" ToRole="Administrator" />
+          <NavigationProperty Name="Bron" Relationship="Self.FK__Confirmed__BronI__2F10007B" FromRole="ConfirmedBooking" ToRole="Bron" />
+          <NavigationProperty Name="Waiter" Relationship="Self.FK__Confirmed__Waite__2E1BDC42" FromRole="ConfirmedBooking" ToRole="Waiter" />
         </EntityType>
         <EntityType Name="Stol">
           <Key>
@@ -192,22 +192,22 @@
           </Key>
           <Property Name="StolID" Type="Int32" Nullable="false" />
           <Property Name="Seats" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Bron" Relationship="Self.FK__Bron__StolID__38996AB5" FromRole="Stol" ToRole="Bron" />
+          <NavigationProperty Name="Bron" Relationship="Self.FK__Bron__StolID__267ABA7A" FromRole="Stol" ToRole="Bron" />
         </EntityType>
         <EntityType Name="Waiter">
           <Key>
             <PropertyRef Name="WaiterID" />
           </Key>
-          <Property Name="WaiterID" Type="Int32" Nullable="false" />
+          <Property Name="WaiterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Education" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ConfirmedBooking" Relationship="Self.FK__Confirmed__Waite__403A8C7D" FromRole="Waiter" ToRole="ConfirmedBooking" />
+          <NavigationProperty Name="ConfirmedBooking" Relationship="Self.FK__Confirmed__Waite__2E1BDC42" FromRole="Waiter" ToRole="ConfirmedBooking" />
         </EntityType>
-        <Association Name="FK__Confirmed__Admin__3F466844">
+        <Association Name="FK__Confirmed__Admin__2D27B809">
           <End Role="Administrator" Type="Self.Administrator" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -221,7 +221,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bron__StolID__38996AB5">
+        <Association Name="FK__Bron__StolID__267ABA7A">
           <End Role="Stol" Type="Self.Stol" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -235,7 +235,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Confirmed__BronI__412EB0B6">
+        <Association Name="FK__Confirmed__BronI__2F10007B">
           <End Role="Bron" Type="Self.Bron" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -249,7 +249,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Confirmed__Waite__403A8C7D">
+        <Association Name="FK__Confirmed__Waite__2E1BDC42">
           <End Role="Waiter" Type="Self.Waiter" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -269,19 +269,19 @@
           <EntitySet Name="ConfirmedBooking" EntityType="Self.ConfirmedBooking" />
           <EntitySet Name="Stol" EntityType="Self.Stol" />
           <EntitySet Name="Waiter" EntityType="Self.Waiter" />
-          <AssociationSet Name="FK__Confirmed__Admin__3F466844" Association="Self.FK__Confirmed__Admin__3F466844">
+          <AssociationSet Name="FK__Confirmed__Admin__2D27B809" Association="Self.FK__Confirmed__Admin__2D27B809">
             <End Role="Administrator" EntitySet="Administrator" />
             <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
           </AssociationSet>
-          <AssociationSet Name="FK__Bron__StolID__38996AB5" Association="Self.FK__Bron__StolID__38996AB5">
+          <AssociationSet Name="FK__Bron__StolID__267ABA7A" Association="Self.FK__Bron__StolID__267ABA7A">
             <End Role="Stol" EntitySet="Stol" />
             <End Role="Bron" EntitySet="Bron" />
           </AssociationSet>
-          <AssociationSet Name="FK__Confirmed__BronI__412EB0B6" Association="Self.FK__Confirmed__BronI__412EB0B6">
+          <AssociationSet Name="FK__Confirmed__BronI__2F10007B" Association="Self.FK__Confirmed__BronI__2F10007B">
             <End Role="Bron" EntitySet="Bron" />
             <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
           </AssociationSet>
-          <AssociationSet Name="FK__Confirmed__Waite__403A8C7D" Association="Self.FK__Confirmed__Waite__403A8C7D">
+          <AssociationSet Name="FK__Confirmed__Waite__2E1BDC42" Association="Self.FK__Confirmed__Waite__2E1BDC42">
             <End Role="Waiter" EntitySet="Waiter" />
             <End Role="ConfirmedBooking" EntitySet="ConfirmedBooking" />
           </AssociationSet>

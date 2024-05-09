@@ -27,7 +27,7 @@
     </Window.Resources>
     <Grid Background="#EBF0E4">
         <Button VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30,40,0,0" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button_Click" FontWeight="Bold" >
-            <Image x:Name="Block7"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b7.png"  Height="30"  />
+            <Image x:Name="Block7"  Source="D:\рпм\cafe\cafe\b7.png"  Height="30"  />
         </Button>
         <Label HorizontalAlignment="Center" VerticalAlignment="Top" Width="600" Height="100" FontSize="72" FontWeight="Bold" >Карта ресторана</Label>
         <Button Content="1" Width="300" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,90,0,0" FontSize="48" >

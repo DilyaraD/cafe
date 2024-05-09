@@ -13,6 +13,8 @@ namespace cafe
             InitializeComponent();
             _context = context;
             this.admin = admin;
+            datePicker.DisplayDateStart = DateTime.Now.AddDays(1);
+            datePicker.DisplayDateEnd = DateTime.Now.AddDays(300);
         }
 
         private readonly cafeEntities _context;
@@ -37,58 +39,67 @@ namespace cafe
         private void ADD_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(timeTextBox.SelectedValue?.ToString()) ||
-                string.IsNullOrEmpty(stolBox.SelectedValue?.ToString()) || string.IsNullOrEmpty(ggBox.SelectedValue?.ToString()) || string.IsNullOrEmpty(firstNameTextBox.Text) || 
+                string.IsNullOrEmpty(stolBox.SelectedValue?.ToString()) || string.IsNullOrEmpty(ggBox.SelectedValue?.ToString()) || string.IsNullOrEmpty(firstNameTextBox.Text) ||
                 string.IsNullOrEmpty(lastNameTextBox.Text) || string.IsNullOrEmpty(PhoneTextBox.Text) || !datePicker.SelectedDate.HasValue)
             {
                 MessageBox.Show("Заполните все поля!");
             }
             else
             {
+
                 int BronID = _context.Bron.Max(b => b.BronID);
                 var selectedStol = int.Parse(selectedTable);
                 var selectedStolInfo = _context.Stol.FirstOrDefault(s => s.StolID == selectedStol);
-                if (datePicker.SelectedDate.Value.Date > DateTime.Now.Date || (datePicker.SelectedDate.Value.Date == DateTime.Now.Date))
+                TimeSpan time = TimeSpan.Parse(selectedTime);
+                var existingBooking = _context.Bron.FirstOrDefault(b => b.StolID == selectedStolInfo.StolID && b.BookingDate == datePicker.SelectedDate.Value && b.BookingTime == time);
+                if (existingBooking != null)
                 {
-                    if (selectedStolInfo != null)
+                    MessageBox.Show("Выбранный стол уже забронирован на это время!");
+                }
+                else
+                {
+                    if (datePicker.SelectedDate.Value.Date > DateTime.Now.Date || (datePicker.SelectedDate.Value.Date == DateTime.Now.Date))
                     {
-                        int seats = selectedStolInfo.Seats;
-
-                        int guestsCount = int.Parse(selectedGG);
-                        if (guestsCount <= seats)
+                        if (selectedStolInfo != null)
                         {
-                            var Bron = new Bron
-                            {
-                                BronID = BronID + 1,
-                                FirstName = firstNameTextBox.Text,
-                                LastName = lastNameTextBox.Text,
-                                PhoneNumber = PhoneTextBox.Text,
-                                BookingDate = datePicker.SelectedDate.Value,
-                                BookingTime = TimeSpan.Parse(selectedTime),
-                                StolID = selectedStolInfo.StolID,
-                                GuestsCount = int.Parse(selectedGG),
-                                Status = "expectation"
-                            };
-                            _context.Bron.Add(Bron);
-                            _context.SaveChanges();
-                            MessageBox.Show("ЖДЕМ ВАС ПО АДРЕСУ: БОЛЬШАЯ КРАСНАЯ 55\n" + datePicker.SelectedDate.Value.ToString("dd.MM.yy") + "\n" + selectedTime);
-                            var R = new Rez1(new cafeEntities(), admin);
-                            R.Show();
-                            Close();
+                            int seats = selectedStolInfo.Seats;
 
+                            int guestsCount = int.Parse(selectedGG);
+                            if (guestsCount <= seats)
+                            {
+                                var Bron = new Bron
+                                {
+                                    FirstName = firstNameTextBox.Text,
+                                    LastName = lastNameTextBox.Text,
+                                    PhoneNumber = PhoneTextBox.Text,
+                                    BookingDate = datePicker.SelectedDate.Value,
+                                    BookingTime = TimeSpan.Parse(selectedTime),
+                                    StolID = selectedStolInfo.StolID,
+                                    GuestsCount = int.Parse(selectedGG),
+                                    Status = "expectation"
+                                };
+                                _context.Bron.Add(Bron);
+                                _context.SaveChanges();
+                                MessageBox.Show("ЖДЕМ ВАС ПО АДРЕСУ: БОЛЬШАЯ КРАСНАЯ 55\n" + datePicker.SelectedDate.Value.ToString("dd.MM.yy") + "\n" + selectedTime);
+                                var R = new Reserv(new cafeEntities());
+                                R.Show();
+                                Close();
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Количество гостей превышает доступное количество мест на выбранном столе!");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Количество гостей превышает доступное количество мест на выбранном столе!");
+                            MessageBox.Show("Стол и день брони заняты!");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Стол и день брони заняты!");
+                        MessageBox.Show("В это время нет брони!");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("В это время нет брони!");
                 }
             }
         }
@@ -115,6 +126,33 @@ namespace cafe
 
         }
 
+        private bool errorShown = false;
+        private void ValidateInput(TextBox textBox, string regexPattern, int maxLength)
+        {
+            if (!Regex.IsMatch(textBox.Text, regexPattern))
+            {
+                if (!errorShown)
+                {
+                MessageBox.Show("Пожалуйста, введите только английские буквы.");
+                    errorShown = true;
+                }
+                textBox.Text = string.Empty;
+            }
+            else if (textBox.Text.Length > maxLength)
+            {
+                if (!errorShown)
+                {
+                    MessageBox.Show($"Пожалуйста, введите слово длиной не более {maxLength} символов.");
+                    errorShown = true;
+                }
+                textBox.Text = string.Empty;
+            }
+            else
+            {
+                errorShown = false;
+            }
+        }
+
         private void PhoneTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string phoneNumber = PhoneTextBox.Text;
@@ -124,38 +162,16 @@ namespace cafe
                 phoneNumber = phoneNumber.Substring(0, 11);
             }
             PhoneTextBox.Text = phoneNumber;
-
         }
 
         private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-            if (!Regex.IsMatch(textBox.Text, " ^[a-zA-Z]+$"))
-            {
-                MessageBox.Show("Пожалуйста, введите только английские буквы.");
-                textBox.Text = string.Empty;
-            }
-            else if (textBox.Text.Length > 45)
-            {
-                MessageBox.Show("Пожалуйста, введите слово короче.");
-                textBox.Text = string.Empty;
-            }
+            ValidateInput((TextBox)sender, "^[a-zA-Z\\s]+$", 45);
         }
 
         private void lastNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-            if (!Regex.IsMatch(textBox.Text, "^[a-zA-Z]+$"))
-            {
-                MessageBox.Show("Пожалуйста, введите только английские буквы.");
-                textBox.Text = string.Empty;
-            }
-            else if (textBox.Text.Length > 45)
-            {
-                MessageBox.Show("Пожалуйста, введите слово короче.");
-                textBox.Text = string.Empty;
-            }
+            ValidateInput((TextBox)sender, "^[a-zA-Z\\s]+$", 45);
         }
     }
-
 }

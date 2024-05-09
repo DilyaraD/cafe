@@ -36,15 +36,15 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b8_1.png" Stretch="Fill" Margin="0,0,-82,0" />
-        <Image x:Name="Block2"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b2.png"  Height="63" Width="131" Margin="100,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image Source="D:\рпм\cafe\cafe\b8_1.png" Stretch="Fill" Margin="0,0,-82,0" />
+        <Image x:Name="Block2"  Source="D:\рпм\cafe\cafe\b2.png"  Height="63" Width="131" Margin="100,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Foreground="White"  FontSize="63"  Content="Trattoria" FontFamily="Baskerville Old Face" Margin="51,20,0,0">
             <Label.Effect>
                 <DropShadowEffect Color="Black" BlurRadius="3" ShadowDepth="3" Direction="0"/>
             </Label.Effect>
         </Label>
         <Button VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,40,80,0" Background="Transparent" Click="Button_Click" Style="{StaticResource ButtonStyle}">
-            <Image x:Name="Block3"  Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b3.png"  Height="50" Width="215"  />
+            <Image x:Name="Block3"  Source="D:\рпм\cafe\cafe\b3.png"  Height="50" Width="215"  />
         </Button>
         <Label Foreground="White"  FontSize="23" FontFamily="Baskerville Old Face" Margin="0,50,330,0" Content="+86 852 346 000" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         <Grid Width="1250">
@@ -59,10 +59,10 @@
             <Label Foreground="White"  FontSize="36" FontFamily="Britannic Bold">Мы находимся в Казани,</Label>
             <Label Foreground="#FFFFFFFD"  FontSize="36" FontFamily="Britannic Bold">на улице Большая Красная, 55.</Label>
         </StackPanel>
-        <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b9.png" Height="150"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,90"/>
+        <Image   Source="D:\рпм\cafe\cafe\b9.png" Height="150"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,90"/>
         </Grid>
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button1_Click" Style="{StaticResource ButtonStyle}" >
-            <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
+            <Image   Source="D:\рпм\cafe\cafe\b10.png"  Height="30"  />
         </Button>
     </Grid>
 </Window>

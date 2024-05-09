@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e3d3e50d15f34f7baf48021d25a05052" Name="Diagram1" ZoomLevel="94">
-        <EntityTypeShape EntityType="cafeModel.Administrator" Width="1.75" PointX="7" PointY="1.375" IsExpanded="true" />
+      <Diagram DiagramId="739cebaf597e422fbf524e43f5f42548" Name="Diagram1">
+        <EntityTypeShape EntityType="cafeModel.Administrator" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="cafeModel.Bron" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="cafeModel.ConfirmedBooking" Width="1.75" PointX="5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafeModel.ConfirmedBooking" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="cafeModel.Stol" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cafeModel.Waiter" Width="1.5" PointX="9.25" PointY="1.5" IsExpanded="true" />
-        <AssociationConnector Association="cafeModel.FK__Confirmed__Admin__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="cafeModel.FK__Bron__StolID__38996AB5" ManuallyRouted="false" />
-        <AssociationConnector Association="cafeModel.FK__Confirmed__BronI__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="cafeModel.FK__Confirmed__Waite__403A8C7D" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cafeModel.Waiter" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="cafeModel.FK__Confirmed__Admin__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="cafeModel.FK__Bron__StolID__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="cafeModel.FK__Confirmed__BronI__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="cafeModel.FK__Confirmed__Waite__2E1BDC42" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

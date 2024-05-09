@@ -56,7 +56,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
+        <Image Source="D:\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Background="Transparent" BorderBrush="White" BorderThickness="2" Width="300" Height="70" Click="Button1_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center">
                 <TextBlock Text="Вход" Foreground="White" FontSize="58" FontFamily="Lato"/>
@@ -64,7 +64,7 @@
             <Label Foreground="White" FontSize="16" FontFamily="Lato">только для зарегистированных сотрудников!</Label>
         </StackPanel>
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button_Click" Style="{StaticResource ButtonStyle}" >
-            <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
+            <Image   Source="D:\рпм\cafe\cafe\b10.png"  Height="30"  />
         </Button>
     </Grid>
 </Window>

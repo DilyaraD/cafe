@@ -16,6 +16,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,7 +29,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -123,6 +123,12 @@
     <Compile Include="D2.xaml.cs">
       <DependentUpon>D2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Edit.xaml.cs">
+      <DependentUpon>Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListWaiter.xaml.cs">
+      <DependentUpon>ListWaiter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
@@ -147,8 +153,8 @@
     <Compile Include="Rasp.xaml.cs">
       <DependentUpon>Rasp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reg.xaml.cs">
-      <DependentUpon>Reg.xaml</DependentUpon>
+    <Compile Include="Reg_sotr.xaml.cs">
+      <DependentUpon>Reg_sotr.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reserv.xaml.cs">
       <DependentUpon>Reserv.xaml</DependentUpon>
@@ -191,6 +197,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="D2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListWaiter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,7 +252,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Reg.xaml">
+    <Page Include="Reg_sotr.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -80,7 +80,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Image Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
+        <Image Source="D:\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Label Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center">Вход</Label>
             <Label Foreground="White" FontSize="14" FontFamily="Lato" HorizontalAlignment="Left">Email</Label>
@@ -113,7 +113,7 @@
         </StackPanel>
         
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Click="Button_Click" Style="{StaticResource ButtonStyle}" >
-            <Image   Source="C:\Users\DNS\OneDrive\Документы\рпм\cafe\cafe\b10.png"  Height="30"  />
+            <Image   Source="D:\рпм\cafe\cafe\b10.png"  Height="30"  />
         </Button>
     </Grid>
 </Window>

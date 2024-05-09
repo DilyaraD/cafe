@@ -35,6 +35,24 @@ namespace cafe
             dataGrid.ItemsSource = bookings;
         }
 
+        public int data(DateTime selectedDate, Waiter twaiter)
+        {
+            var bookings = _context.ConfirmedBooking
+                                   .Where(b => b.WaiterID == twaiter.WaiterID && b.Bron.BookingDate == selectedDate)
+                                   .Select(b => new
+                                   {
+                                       b.BronID,
+                                       b.Bron.BookingTime,
+                                       b.Bron.StolID,
+                                       b.Bron.GuestsCount
+                                   })
+                                   .ToList();
+
+            dataGrid.ItemsSource = bookings;
+            int rowCount = bookings.Count;
+            return rowCount;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             FillDataGrid();

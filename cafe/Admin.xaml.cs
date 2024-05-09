@@ -4,6 +4,7 @@ namespace cafe
 {
     public partial class Admin : Window
     {
+        private Waiter waiter;
         private Administrator admin;
         private readonly cafeEntities _context;
         public Admin(cafeEntities context, Administrator admin)
@@ -44,8 +45,14 @@ namespace cafe
 
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
-            var Reg = new Reg(new cafeEntities(), admin);
+            var Reg = new Reg_sotr(new cafeEntities(), admin);
             Reg.Show();
+            Close();
+        }
+        private void Button5_Click(object sender, RoutedEventArgs e)
+        {
+            var ListWaiter = new ListWaiter(new cafeEntities(), admin);
+            ListWaiter.Show();
             Close();
         }
     }

@@ -18,7 +18,7 @@ namespace cafe
             LoadData();
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             var bronlist = _context.Bron
                  .Where(b => b.Status == "expectation")
@@ -31,28 +31,52 @@ namespace cafe
                 .ToList();
             WaiterComboBox.ItemsSource = waiters;
         }
+        public int Data()
+        {
+            var bronlist = _context.Bron
+                 .Where(b => b.Status == "expectation")
+                 .Select(b => new { b.BronID, b.BookingTime, b.StolID, b.GuestsCount, b.BookingDate })
+                 .ToList();
+            dataGrid.ItemsSource = bronlist;
+            int rowCount = bronlist.Count;
+            return rowCount;
+        }
+
+        public bool Select(dynamic selectedBron, dynamic selectedWaiter)
+        {
+            if (selectedWaiter != null && selectedBron != null)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public bool list(dynamic selectedBron, dynamic selectedWaiter)
+        {
+            var confirmedBooking = new ConfirmedBooking()
+            {
+                AdminID = admin.AdminID,
+                WaiterID = selectedWaiter.WaiterID,
+                BronID = selectedBron.BronID,
+                ConfirmationDate = DateTime.Now
+            };
+            _context.ConfirmedBooking.Add(confirmedBooking);
+            _context.SaveChanges();
+            return true;
+        }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            var selectedBron = (dynamic)dataGrid.SelectedItem; 
+            var selectedBron = (dynamic)dataGrid.SelectedItem;
             var selectedWaiter = (dynamic)((ComboBox)WaiterComboBox.GetCellContent(dataGrid.SelectedItem)).SelectedItem;
-
-
-            if (selectedWaiter != null && selectedBron != null) 
+            if (Select(selectedBron, selectedWaiter)) 
             {
-                int confirmedBookingID = _context.ConfirmedBooking.Max(c => c.ConfirmedBookingID);
-                var confirmedBooking = new ConfirmedBooking()
-                {
-                    ConfirmedBookingID = confirmedBookingID + 1,
-                    AdminID = admin.AdminID,
-                    WaiterID = selectedWaiter.WaiterID, 
-                    BronID = selectedBron.BronID,
-                    ConfirmationDate = DateTime.Now
-                };
-                _context.ConfirmedBooking.Add(confirmedBooking);
-                _context.SaveChanges();
-                MessageBox.Show("Бронь успешно подтверждена.");
+                bool result = list(selectedBron, selectedWaiter);
+                if (result)
+                {  MessageBox.Show("Бронь успешно подтверждена.");
                 LoadData();
+                }
+                else MessageBox.Show("Произошла ошибка.");
             }
             else
             {
