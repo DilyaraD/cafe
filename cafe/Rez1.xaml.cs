@@ -8,6 +8,11 @@ namespace cafe
 {
     public partial class Rez1 : Window
     {
+        private readonly cafeEntities _context;
+        private string selectedTable;
+        private string selectedTime;
+        private string selectedGG;
+        private readonly Administrator admin;
         public Rez1(cafeEntities context, Administrator admin)
         {
             InitializeComponent();
@@ -17,11 +22,6 @@ namespace cafe
             datePicker.DisplayDateEnd = DateTime.Now.AddDays(300);
         }
 
-        private readonly cafeEntities _context;
-        private string selectedTable;
-        private string selectedTime;
-        private string selectedGG;
-        private readonly Administrator admin;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -43,6 +43,10 @@ namespace cafe
                 string.IsNullOrEmpty(lastNameTextBox.Text) || string.IsNullOrEmpty(PhoneTextBox.Text) || !datePicker.SelectedDate.HasValue)
             {
                 MessageBox.Show("Заполните все поля!");
+            }
+            if (PhoneTextBox.Text.Length < 11)
+            {
+                MessageBox.Show("Номер телефона должен состоять из 11 цифр!");
             }
             else
             {
@@ -69,6 +73,7 @@ namespace cafe
                             {
                                 var Bron = new Bron
                                 {
+                                    BronID = BronID + 1,
                                     FirstName = firstNameTextBox.Text,
                                     LastName = lastNameTextBox.Text,
                                     PhoneNumber = PhoneTextBox.Text,
@@ -162,6 +167,14 @@ namespace cafe
                 phoneNumber = phoneNumber.Substring(0, 11);
             }
             PhoneTextBox.Text = phoneNumber;
+
+            foreach (char c in PhoneTextBox.Text)
+            {
+                if (!Char.IsDigit(c))
+                {
+                    PhoneTextBox.Text = PhoneTextBox.Text.Remove(PhoneTextBox.Text.IndexOf(c), 1);
+                }
+            }
         }
 
         private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)

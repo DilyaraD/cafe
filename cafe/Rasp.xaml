@@ -79,7 +79,7 @@
                 <Label x:Name="TextT1" Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" />
 
                 <Label Foreground="White" FontSize="16" FontFamily="Lato"  Grid.Row="1" Grid.Column="5" Margin="0,0,0,0" >Дата смены:</Label>
-                <DatePicker Name="datePicker" DisplayDate="2023-10-06" SelectedDateFormat="Short" Width="110" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" Margin="0,0,45,0">
+                <DatePicker Name="datePicker" SelectedDateFormat="Short" Width="110" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" Margin="0,0,45,0">
                     <DatePicker.Resources>
                         <Style x:Key="BlackDatePicker" TargetType="Calendar" >
                             <Setter Property="Background" Value="Black" />

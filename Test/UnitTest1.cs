@@ -33,13 +33,13 @@ namespace Test
             Assert.IsFalse(result);
         }
 
-        //[TestMethod]
-        //public void TestReg()
-        //{
-        //    Reg_sotr reg = new Reg_sotr(_context, admin);
-        //    bool result = reg.RegisterUser("Heyin", "Kim", "1234567890", "High", "hk@gmail.com", "15612");
-        //    Assert.IsTrue(result);
-        //}
+        [TestMethod]
+        public void TestReg()
+        {
+            Reg_sotr reg = new Reg_sotr(_context, admin);
+            bool result = reg.RegisterUser("Heyin", "Kim", "1234567890", "High", "hk@gmail.com", "15612");
+            Assert.IsTrue(result);
+        }
 
 
         [TestMethod]
@@ -129,15 +129,15 @@ namespace Test
             Assert.AreEqual(expectedCount, broncount);
         }
 
-        //[TestMethod]
-        //public void TestReserv()
-        //{
-        //    Reserv rez = new Reserv(_context);
-        //    DateTime date = new DateTime(2024, 06, 13);
-        //    TimeSpan time = new TimeSpan(13, 0, 0);
-        //    bool result = rez.AddBron("Heyin", "Kim", "1234567890", date, time, 1, 3);
-        //    Assert.IsTrue(result);
-        //}
+        [TestMethod]
+        public void TestReserv()
+        {
+            Reserv rez = new Reserv(_context);
+            DateTime date = new DateTime(2024, 06, 13);
+            TimeSpan time = new TimeSpan(13, 0, 0);
+            bool result = rez.AddBron("Heyin", "Kim", "1234567890", date, time, 1, 3);
+            Assert.IsTrue(result);
+        }
 
         [TestMethod]
         public void TestReserv_CheckBookingAvailability()
@@ -178,7 +178,7 @@ namespace Test
         [TestMethod]   
         public void TestRasp() 
         {
-            var _waiter = _context.Waiter.FirstOrDefault(w => w.WaiterID == 1);
+            var _waiter = _context.Waiter.FirstOrDefault(w => w.WaiterID == 4002);
             Rasp rasp = new Rasp(_context, _waiter);
             DateTime date = new DateTime(2024, 05, 09);
             var expectedCount = _context.ConfirmedBooking.Count(b => b.WaiterID == _waiter.WaiterID && b.Bron.BookingDate == date);
@@ -189,7 +189,7 @@ namespace Test
         [TestMethod]
         public void TestList_Del()
         {
-            var _waiter = _context.Waiter.FirstOrDefault(w => w.WaiterID == 6);
+            var _waiter = _context.Waiter.FirstOrDefault(w => w.WaiterID == 1002);
             ListWaiter del = new ListWaiter(_context, admin);
             bool resilt = del.Del(_waiter);
             Assert.IsTrue(resilt);
@@ -198,7 +198,7 @@ namespace Test
         [TestMethod]
         public void TestList_FB()
         {
-            var _waiter = _context.Waiter.FirstOrDefault(w => w.WaiterID == 2002);
+            var _waiter = _context.Waiter.FirstOrDefault(w => w.WaiterID == 4002);
             ListWaiter del = new ListWaiter(_context, admin);
             bool resilt = del.FB(_waiter);
             Assert.IsTrue(resilt);
@@ -207,7 +207,7 @@ namespace Test
         [TestMethod]
         public void TestEdit()
         {
-            var _waiter = _context.Waiter.FirstOrDefault(w => w.WaiterID == 2002);
+            var _waiter = _context.Waiter.FirstOrDefault(w => w.WaiterID == 4002);
             Edit edit = new Edit(_context, admin, _waiter);
             bool resilt = edit.SaveChanges(_waiter.FirstName, "Gigi", _waiter.PhoneNumber.ToString(), _waiter.Education, _waiter.Email.ToString(), _waiter.Password.ToString());
             Assert.IsTrue(resilt);

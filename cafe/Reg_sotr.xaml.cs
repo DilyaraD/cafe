@@ -42,6 +42,8 @@ namespace cafe
             else
             {
                 Waiter waiter = new Waiter();
+                int WaiterID = _context.Waiter.Max(w => w.WaiterID);
+                waiter.WaiterID = WaiterID + 1;
                 waiter.FirstName = fname;
                 waiter.LastName = lname;
                 waiter.PhoneNumber = phone;
@@ -94,6 +96,13 @@ namespace cafe
                 phonetxt.CaretIndex = phoneNumber.Length;
             }
 
+            foreach (char c in phonetxt.Text)
+            {
+                if (!Char.IsDigit(c))
+                {
+                    phonetxt.Text = phonetxt.Text.Remove(phonetxt.Text.IndexOf(c), 1);
+                }
+            }
             return phoneNumber;
         }
 
@@ -120,7 +129,7 @@ namespace cafe
 
         private void nametxt_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CheckInput(nametxt, "^[a-zA-Z\\s]+$", 45);
+            CheckInput(nametxt, "^[a-zA-Z0-9&\\s]+$", 45);
         }
 
         private void lastnametxt_TextChanged(object sender, TextChangedEventArgs e)
@@ -162,6 +171,10 @@ namespace cafe
             if (IsNullOrEmpty(txtEmail.Text,nametxt.Text,passwordtxt.Text,lastnametxt.Text,eductxt.Text,phonetxt.Text))
             {
                 MessageBox.Show("Заполните все поля!");
+            }
+            if (phonetxt.Text.Length < 11)
+            {
+                MessageBox.Show("Номер телефона должен состоять из 11 цифр!");
             }
             else
             {

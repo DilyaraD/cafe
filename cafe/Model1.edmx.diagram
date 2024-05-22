@@ -4,16 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="739cebaf597e422fbf524e43f5f42548" Name="Diagram1">
+      <Diagram DiagramId="83746edcc5584e3782e4d20583559ec6" Name="Diagram1">
         <EntityTypeShape EntityType="cafeModel.Administrator" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="cafeModel.Bron" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="cafeModel.ConfirmedBooking" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="cafeModel.Stol" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cafeModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cafeModel.Waiter" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
-        <AssociationConnector Association="cafeModel.FK__Confirmed__Admin__2D27B809" ManuallyRouted="false" />
-        <AssociationConnector Association="cafeModel.FK__Bron__StolID__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="cafeModel.FK__Confirmed__BronI__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="cafeModel.FK__Confirmed__Waite__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="cafeModel.FK__Confirmed__Admin__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="cafeModel.FK__Bron__StolID__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="cafeModel.FK__Confirmed__BronI__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="cafeModel.FK__Confirmed__Waite__1F98B2C1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

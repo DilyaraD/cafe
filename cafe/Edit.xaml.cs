@@ -76,26 +76,49 @@ namespace cafe
             {
                 MessageBox.Show("Заполните поля!");
             }
+            if (phonetxt.Text.Length < 11)
+            {
+                MessageBox.Show("Номер телефона должен состоять из 11 цифр!");
+            }
             else
             {
-                string email = txtEmail.Text.Trim();
-                if (CheckEmail(email))
+                string currentName = waiter.FirstName;
+                string currentLastName = waiter.LastName;
+                string currentPhone = waiter.PhoneNumber;
+                string currentEdu = waiter.Education;
+                string currentEmail = waiter.Email;
+                string currentPassword = waiter.Password;
+
+                if (nametxt.Text == currentName && lastnametxt.Text == currentLastName &&
+                    phonetxt.Text == currentPhone && eductxt.Text == currentEdu &&
+                    txtEmail.Text == currentEmail && passwordtxt.Text == currentPassword)
                 {
-                    if (SaveChanges(nametxt.Text, lastnametxt.Text, phonetxt.Text, eductxt.Text, txtEmail.Text, passwordtxt.Text))
-                    {
-                        MessageBox.Show("Изменения успешно сохранены!");
-                        ListWaiter list = new ListWaiter(_context, admin);
-                        list.Show();
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Произошла ошибка!");
-                    }
+                    MessageBox.Show("Изменения не были внесены.");
+                    ListWaiter list = new ListWaiter(_context, admin);
+                    list.Show();
+                    Close();
                 }
                 else
                 {
-                    MessageBox.Show("Формат Email неверный.");
+                    string email = txtEmail.Text.Trim();
+                    if (CheckEmail(email))
+                    {
+                        if (SaveChanges(nametxt.Text, lastnametxt.Text, phonetxt.Text, eductxt.Text, txtEmail.Text, passwordtxt.Text))
+                        {
+                            MessageBox.Show("Изменения успешно сохранены!");
+                            ListWaiter list = new ListWaiter(_context, admin);
+                            list.Show();
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Произошла ошибка!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Формат Email неверный.");
+                    }
                 }
             }
         }
@@ -137,6 +160,13 @@ namespace cafe
                 phonetxt.CaretIndex = phoneNumber.Length;
             }
 
+            foreach (char c in phonetxt.Text)
+            {
+                if (!Char.IsDigit(c))
+                {
+                    phonetxt.Text = phonetxt.Text.Remove(phonetxt.Text.IndexOf(c), 1);
+                }
+            }
             return phoneNumber;
         }
 

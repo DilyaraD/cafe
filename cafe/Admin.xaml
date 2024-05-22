@@ -36,9 +36,9 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="FontFamily" Value="Lato"/>
-            <Setter Property="Width" Value="560"/>
-            <Setter Property="FontSize" Value="64"/>
-        <Setter Property="Margin" Value="0,18,0,0"/>
+            <Setter Property="Width" Value="510"/>
+            <Setter Property="Height" Value="58"/>
+        <Setter Property="Margin" Value="0,15,0,0"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -62,26 +62,30 @@
         <Image Source="D:\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label x:Name="TextT1" Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,60"/>
+            <Label x:Name="TextT1" Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30"/>
 
-            <Button Click="Button1_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center" Margin="0,0,0,15">
-                <TextBlock Text="Резервирование" Foreground="White" FontSize="54" FontFamily="Lato"/>
+            <Button Click="Button1_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center">
+                <TextBlock Text="Резервирование" Foreground="White" FontSize="45" FontFamily="Lato"/>
             </Button>
 
-            <Button Click="Button2_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center" Margin="0, 15,0,15">
-                <TextBlock Text="Данные" Foreground="White" FontSize="54" FontFamily="Lato"/>
+            <Button Click="Button2_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center">
+                <TextBlock Text="Данные" Foreground="White" FontSize="45" FontFamily="Lato"/>
             </Button>
 
-            <Button Click="Button3_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center" Margin="0,15,0,15">
-                <TextBlock Text="Бронь стола" Foreground="White" FontSize="54" FontFamily="Lato"/>
+            <Button Click="Button3_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center">
+                <TextBlock Text="Бронь стола" Foreground="White" FontSize="45" FontFamily="Lato"/>
             </Button>
 
             <Button Click="Button4_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center">
-                <TextBlock Text="Добавить сотрудника" Foreground="White" FontSize="54" FontFamily="Lato"/>
+                <TextBlock Text="Добавить сотрудника" Foreground="White" FontSize="45" FontFamily="Lato"/>
             </Button>
 
             <Button Click="Button5_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center">
-                <TextBlock Text="Список сотрудников" Foreground="White" FontSize="54" FontFamily="Lato"/>
+                <TextBlock Text="Список сотрудников" Foreground="White" FontSize="45" FontFamily="Lato"/>
+            </Button>
+
+            <Button Click="Button6_Click" Style="{StaticResource ButtonStyle1}" HorizontalAlignment="center">
+                <TextBlock Text="Список броней" Foreground="White" FontSize="45" FontFamily="Lato"/>
             </Button>
         </StackPanel>
 

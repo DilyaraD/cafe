@@ -55,5 +55,12 @@ namespace cafe
             ListWaiter.Show();
             Close();
         }
+
+        private void Button6_Click(object sender, RoutedEventArgs e)
+        {
+            var List = new ListBron(new cafeEntities(), admin);
+            List.Show();
+            Close();
+        }
     }
 }

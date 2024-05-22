@@ -91,31 +91,16 @@
       <DependentUpon>Admin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Administrator.cs">
-      <DependentUpon>cafeModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bron.cs">
-      <DependentUpon>cafeModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Broni.xaml.cs">
       <DependentUpon>Broni.xaml</DependentUpon>
     </Compile>
-    <Compile Include="cafeModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>cafeModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="cafeModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>cafeModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="cafeModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>cafeModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="ConfirmedBooking.cs">
-      <DependentUpon>cafeModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="D1.xaml.cs">
       <DependentUpon>D1.xaml</DependentUpon>
@@ -125,6 +110,9 @@
     </Compile>
     <Compile Include="Edit.xaml.cs">
       <DependentUpon>Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListBron.xaml.cs">
+      <DependentUpon>ListBron.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListWaiter.xaml.cs">
       <DependentUpon>ListWaiter.xaml</DependentUpon>
@@ -147,6 +135,21 @@
     <Compile Include="Menu5.xaml.cs">
       <DependentUpon>Menu5.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Offi.xaml.cs">
       <DependentUpon>Offi.xaml</DependentUpon>
     </Compile>
@@ -162,8 +165,17 @@
     <Compile Include="Rez1.xaml.cs">
       <DependentUpon>Rez1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Stol.cs">
-      <DependentUpon>cafeModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Table.xaml.cs">
       <DependentUpon>Table.xaml</DependentUpon>
@@ -178,7 +190,7 @@
       <DependentUpon>Vhod_sotr.xaml</DependentUpon>
     </Compile>
     <Compile Include="Waiter.cs">
-      <DependentUpon>cafeModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Page Include="About.xaml">
       <SubType>Designer</SubType>
@@ -203,6 +215,10 @@
     <Page Include="Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListBron.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ListWaiter.xaml">
       <SubType>Designer</SubType>
@@ -299,12 +315,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="cafeModel.edmx">
+    <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>cafeModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="cafeModel.edmx.diagram">
-      <DependentUpon>cafeModel.edmx</DependentUpon>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -331,15 +347,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="cafeModel.Context.tt">
+    <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>cafeModel.edmx</DependentUpon>
-      <LastGenOutput>cafeModel.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="cafeModel.tt">
+    <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>cafeModel.edmx</DependentUpon>
-      <LastGenOutput>cafeModel.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

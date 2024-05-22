@@ -1,13 +1,12 @@
-﻿<Window x:Class="cafe.Broni"
+﻿<Window x:Class="cafe.ListBron"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cafe"
         mc:Ignorable="d"
-      Title="Подтверждение брони"  MinHeight="750" MinWidth="1200"
-        WindowStartupLocation="Manual"
-        Left="0" Top="0">
+        Title="Список брони" MinHeight="750" MinWidth="1200"
+         WindowStartupLocation="Manual" Left="0" Top="0">
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
@@ -57,7 +56,6 @@
     </Window.Resources>
     <Grid>
         <Image Source="D:\рпм\cafe\cafe\26_1.png" Stretch="Fill" />
-
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Grid>
                 <Grid.RowDefinitions>
@@ -69,41 +67,38 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="450"/>
-                    <ColumnDefinition Width="450"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="160"/>
                 </Grid.ColumnDefinitions>
-                <Label Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Подтверждение брони стола</Label>
-                <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" Height="400" SelectionChanged="dataGrid_SelectionChanged">
+                <Label Foreground="White" FontSize="64" FontFamily="Lato" HorizontalAlignment="Center" Margin="0,0,0,30" Grid.Row="0" Grid.ColumnSpan="5" Grid.Column="0">Подтвержденные брони</Label>
+                <DatePicker Name="datePicker" SelectedDateFormat="Short" Width="110" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" Margin="0,0,45,0">
+                    <DatePicker.Resources>
+                        <Style x:Key="BlackDatePicker" TargetType="Calendar" >
+                            <Setter Property="Background" Value="Black" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+                <Button Grid.Row="1" Grid.Column="5" FontFamily="Global User Interface" HorizontalAlignment="Right" Background="DarkGreen" Foreground="Black" Height="20" Width="36" Margin="15,0,0,0" BorderBrush="Transparent" Click="Button_Click_1" >найти</Button>
+
+                <DataGrid x:Name="dataGrid" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" AutoGenerateColumns="False" Height="400">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="№" Binding="{Binding BronID}" Width="50"/>
-                        <DataGridTextColumn Header="Время" Binding="{Binding BookingTime}" Width="100"/>
-                        <DataGridTextColumn Header="Стол" Binding="{Binding StolID}" Width="100"/>
-                        <DataGridTextColumn Header="Кол-во человек" Binding="{Binding GuestsCount}" Width="150"/>
-                        <DataGridTextColumn Header="Дата" Binding="{Binding BookingDate}" Width="155"/>
-
-                        <DataGridComboBoxColumn Header="Официант" x:Name="WaiterComboBox"  SelectedValueBinding="{Binding WaiterID}" DisplayMemberPath="FullName" Width="200">
-                            <DataGridComboBoxColumn.ElementStyle>
-                                <Style TargetType="ComboBox">
-                                    <Setter Property="ItemsSource" Value="{Binding DataContext.Waiters, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-                                </Style>
-                            </DataGridComboBoxColumn.ElementStyle>
-                        </DataGridComboBoxColumn>
-
-                        <DataGridTemplateColumn Header="Подтвердить" Width="100">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="Подтвердить" Click="Button2_Click" Command="{Binding DataContext.ConfirmBookingCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Width="100" Header="№" Binding="{Binding BronID}" />
+                        <DataGridTextColumn Width="200" Header="Официант" Binding="{Binding WaiterName}" />
+                        <DataGridTextColumn Width="200" Header="Время" Binding="{Binding BookingTime}" />
+                        <DataGridTextColumn Width="100" Header="Стол" Binding="{Binding StolID}" />
+                        <DataGridTextColumn Width="150" Header="Количество человек" Binding="{Binding GuestsCount}" />
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
         </StackPanel>
-
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,40" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Click="Button_Click" FontWeight="Bold" Style="{StaticResource ButtonStyle}" >
-            <Image   Source="D:\рпм\cafe\cafe\b10.png"  Height="30"  />
+            <Image Source="D:\рпм\cafe\cafe\b10.png" Height="30" />
         </Button>
     </Grid>
 </Window>

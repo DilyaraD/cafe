@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -73,10 +72,12 @@ namespace cafe
 
         public bool AddBron(string firstName, string lastName, string phoneNumber, DateTime bookingDate, TimeSpan bookingTime, int stolID, int guestsCount)
         {
+            int BronID = _context.Bron.Max(b => b.BronID);
             if (!_context.Bron.Any(u => u.FirstName == firstName && u.LastName == lastName && u.PhoneNumber == phoneNumber && u.BookingDate == bookingDate && u.BookingTime == bookingTime && u.StolID == stolID && u.GuestsCount == guestsCount))
             {
                 var Bron = new Bron
                 {
+                    BronID = BronID + 1,
                     FirstName = firstName,
                     LastName = lastName,
                     PhoneNumber = phoneNumber,
@@ -99,6 +100,10 @@ namespace cafe
             if (CheckFormFields(timeTextBox.SelectedValue?.ToString(), stolBox.SelectedValue?.ToString(), ggBox.SelectedValue?.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, PhoneTextBox.Text, datePicker.SelectedDate))
             {
                 MessageBox.Show("Заполните все поля!");
+            }
+            if(PhoneTextBox.Text.Length < 11)
+            {
+                MessageBox.Show("Номер телефона должен состоять из 11 цифр!");
             }
             else
             {
@@ -190,6 +195,14 @@ namespace cafe
                 phoneNumber = phoneNumber.Substring(0, 11);
                 PhoneTextBox.Text = phoneNumber;
                 PhoneTextBox.CaretIndex = phoneNumber.Length;
+            }
+
+            foreach (char c in PhoneTextBox.Text)
+            {
+                if (!Char.IsDigit(c))
+                {
+                    PhoneTextBox.Text = PhoneTextBox.Text.Remove(PhoneTextBox.Text.IndexOf(c), 1);
+                }
             }
 
             return phoneNumber;

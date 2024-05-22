@@ -53,8 +53,11 @@ namespace cafe
 
         public bool list(dynamic selectedBron, dynamic selectedWaiter)
         {
-            var confirmedBooking = new ConfirmedBooking()
+            int confirmedBookingID = _context.ConfirmedBooking.Max(c => c.ConfirmedBookingID);
+
+                var confirmedBooking = new ConfirmedBooking()
             {
+                ConfirmedBookingID = confirmedBookingID + 1,
                 AdminID = admin.AdminID,
                 WaiterID = selectedWaiter.WaiterID,
                 BronID = selectedBron.BronID,
@@ -92,6 +95,9 @@ namespace cafe
             Close();
         }
 
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }
